@@ -1,770 +1,904 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrew West | Information Systems &amp; Decision Sciences Portfolio</title>
-    <meta name="description"
-        content="Professional portfolio and resume of Andrew West, Information Systems &amp; Decision Sciences student at Louisiana State University (LSU).">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- =====================================================================
+       SEO & PAGE META (EDIT THESE FOR YOUR PERSONAL PROFILE)
+       ===================================================================== -->
+  <title>[Your Name] | Full Stack Developer & Software Engineer</title>
+  <meta name="description" content="Personal portfolio of [Your Name], a passionate software engineer specializing in modern web development, clean design, and scalable systems.">
+  <meta name="keywords" content="portfolio, software engineer, web developer, full stack, frontend, backend">
+  <meta name="author" content="[Your Name]">
 
-    <!-- Google Fonts: Inter & Outfit -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
-        rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Modern Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
+<body>
 
-<body id="top">
+  <!-- Ambient Dynamic Lighting Blobs -->
+  <div class="bg-ambient-light" aria-hidden="true">
+    <div class="ambient-blob-1"></div>
+    <div class="ambient-blob-2"></div>
+    <div class="ambient-blob-3"></div>
+  </div>
 
-    <!-- Sticky Navigation Bar -->
-    <header class="site-header">
-        <div class="nav-container">
-            <a href="#top" class="nav-brand">
-                <div class="brand-badge">AW</div>
-                <span class="brand-name">Andrew West</span>
+  <!-- =====================================================================
+       00. SITE HEADER & NAVIGATION
+       ===================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo / Monogram -->
+      <!-- EDIT: Change "[YN]" and "[YourName]" to your monogram or name -->
+      <a href="#hero" class="brand-logo" aria-label="Home">
+        <span class="brand-badge">[YN]</span>
+        <span>[Your<span class="gradient-text">Name</span>]</span>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#testimonials" class="nav-link">Endorsements</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons & Theme Switcher -->
+      <div class="nav-actions">
+        <!-- Dark/Light Mode Switcher -->
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme">
+          <i id="theme-icon" class="fas fa-sun"></i>
+        </button>
+
+        <!-- Resume Download / View Button -->
+        <!-- EDIT: Update href with your resume PDF link or path -->
+        <a href="#contact" class="btn btn-primary btn-sm" id="nav-resume-btn">
+          <i class="fas fa-paper-plane"></i> Let's Talk
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Open mobile navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================================================================
+         01. HERO SECTION
+         =================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        
+        <!-- Left: Intro & Call To Actions -->
+        <div class="hero-content">
+          <!-- Availability Badge -->
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>Available for New Projects & Roles</span>
+          </div>
+
+          <!-- Main Greeting & Name -->
+          <!-- EDIT: Replace "[Your Name]" with your real name -->
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">[Your Name]</span>
+          </h1>
+
+          <!-- Dynamic Role Typewriter -->
+          <div class="hero-typewriter">
+            <span>Specializing in </span>
+            <span id="typewriter-text" class="gradient-text"></span>
+            <span class="typewriter-cursor">|</span>
+          </div>
+
+          <!-- Hero Pitch / Elevator Tagline -->
+          <!-- EDIT: Write a short 1-2 sentence compelling summary of your craft -->
+          <p class="hero-description">
+            [I design and build high-performance web applications, reliable backend architectures, and elegant digital products. Focused on writing clean, scalable code and delivering memorable user experiences.]
+          </p>
+
+          <!-- Call to Action Buttons -->
+          <div class="hero-ctas">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fas fa-briefcase"></i> View Featured Work
             </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fas fa-envelope"></i> Get In Touch
+            </a>
+            <!-- EDIT: Point this to your resume document -->
+            <a href="#" class="btn btn-secondary" title="Download CV">
+              <i class="fas fa-download"></i> Resume / CV
+            </a>
+          </div>
 
-            <nav aria-label="Main Navigation">
-                <ul class="nav-menu">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#pillars" class="nav-link">Value</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#education" class="nav-link">Education</a></li>
-                    <li><a href="#faq" class="nav-link">Recruiter FAQ</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-
-            <div class="nav-actions">
-                <button type="button" id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode"
-                    aria-label="Toggle Theme">🌙</button>
-                <a href="resume.html" class="btn btn-secondary btn-sm">Resume</a>
-                <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
-            </div>
+          <!-- Social Links Bar -->
+          <div class="hero-socials">
+            <span class="hero-social-label">Connect:</span>
+            <!-- EDIT: Update these links with your actual URLs -->
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Twitter / X Profile">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="mailto:your.email@example.com" class="btn-icon" aria-label="Email Me">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
         </div>
-    </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-content">
-                        <!-- Recruiter Availability Badge -->
-                        <div class="recruiter-badge">
-                            <span class="pulse-dot"></span>
-                            <span>Seeking Summer 2027 Internships &amp; Entry-Level Roles</span>
-                        </div>
-
-                        <h1 class="hero-title">
-                            Solving business problems with <span class="highlight">intelligent systems</span> &amp;
-                            data.
-                        </h1>
-
-                        <p class="hero-subtitle">
-                            Information Systems &amp; Decision Sciences Student at LSU E. J. Ourso College of Business.
-                        </p>
-
-                        <p class="hero-desc">
-                            Specializing in systems analysis, cyber risk analytics, and data driven decision making.
-                            Passionate about transforming organizational data into clear operational advantages.
-                        </p>
-
-                        <div class="hero-cta">
-                            <a href="#projects" class="btn btn-primary btn-lg">Explore Projects &darr;</a>
-                            <a href="resume.html" class="btn btn-secondary btn-lg">View Full Resume</a>
-                            <a href="#contact" class="btn btn-outline btn-lg">Contact Me</a>
-                        </div>
-
-                        <div class="hero-social-links">
-                            <span>Connect:</span>
-                            <button type="button" class="copy-email-btn" title="Click to copy email">
-                                <span>&#128203; Copy Email</span>
-                            </button>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn &rarr;</a>
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- Profile Quick Overview Card with Glowing Avatar -->
-                    <aside class="hero-card">
-                        <div class="hero-avatar-wrapper">
-                            <div class="hero-avatar-glow"></div>
-                            <img src="andrew-west.png" alt="Andrew West" class="hero-avatar-img">
-                        </div>
-                        <h3>Andrew West</h3>
-                        <p class="hero-card-role">Information Systems &amp; Business Analyst</p>
-
-                        <ul class="quick-stats-list">
-                            <li class="quick-stat-item">
-                                <span class="stat-label">University</span>
-                                <span class="stat-value">Louisiana State University (LSU)</span>
-                            </li>
-                            <li class="quick-stat-item">
-                                <span class="stat-label">Degree</span>
-                                <span class="stat-value">B.S. in ISDS</span>
-                            </li>
-                            <li class="quick-stat-item">
-                                <span class="stat-label">Graduation</span>
-                                <span class="stat-value">Fall 2027</span>
-                            </li>
-                            <li class="quick-stat-item">
-                                <span class="stat-label">Location</span>
-                                <span class="stat-value">Baton Rouge, LA</span>
-                            </li>
-                            <li class="quick-stat-item">
-                                <span class="stat-label">Core Tech</span>
-                                <span class="stat-value">Python, Github</span>
-                            </li>
-                        </ul>
-                    </aside>
-                </div>
+        <!-- Right: Modern Interactive Developer Card / Graphic -->
+        <div class="hero-visual">
+          <div class="code-mockup-card">
+            <div class="mockup-header">
+              <div class="mockup-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <span class="mockup-title">DeveloperProfile.ts</span>
             </div>
-        </section>
-
-        <!-- Recruiter Value Pillars Section -->
-        <section id="pillars" class="section-wrapper bg-alt">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">Value Proposition</span>
-                    <p class="section-subtitle">Three core pillars that bridge engineering precision with strategic
-                        business analysis.</p>
-                </div>
-
-                <div class="value-pillars">
-                    <div class="pillar-card">
-                        <div class="pillar-icon">&#9881;</div>
-                        <h3>1. Technical Automation</h3>
-                        <p>Proficient in Python and SQL for building data transformation pipelines, automated business
-                            rule validators, and statistical aggregators that eliminate repetitive manual workflows.</p>
-                    </div>
-
-                    <div class="pillar-card">
-                        <div class="pillar-icon">&#128202;</div>
-                        <h3>2. Systems &amp; Business Alignment</h3>
-                        <p>Trained in the E. J. Ourso College of Business curriculum to conduct rigorous requirements
-                            engineering, process flowcharting, and SDLC architectural analysis targeted at stakeholder
-                            value.</p>
-                    </div>
-
-                    <div class="pillar-card">
-                        <div class="pillar-icon">&#129309;</div>
-                        <h3>3. Agile Team Synergy</h3>
-                        <p>Experienced in pair programming (alternating Driver and Navigator roles), proactive peer code
-                            reviews, Git version control, and clear cross-functional technical communication.</p>
-                    </div>
-                </div>
+            <div class="mockup-body">
+              <span class="code-keyword">const</span> <span class="code-fn">developer</span> = {<br>
+              &nbsp;&nbsp;<span class="code-prop">name</span>: <span class="code-str">"[Your Name]"</span>,<br>
+              &nbsp;&nbsp;<span class="code-prop">role</span>: <span class="code-str">"Full Stack Engineer"</span>,<br>
+              &nbsp;&nbsp;<span class="code-prop">status</span>: <span class="code-str">"Open for Opportunities"</span>,<br>
+              &nbsp;&nbsp;<span class="code-prop">location</span>: <span class="code-str">"[Your City, Country / Remote]"</span>,<br>
+              &nbsp;&nbsp;<span class="code-prop">passion</span>: <span class="code-str">"Building resilient software"</span>,<br>
+              &nbsp;&nbsp;<span class="code-prop">skills</span>: [<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"JavaScript"</span>, <span class="code-str">"TypeScript"</span>, <span class="code-str">"React"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Node.js"</span>, <span class="code-str">"Python"</span>, <span class="code-str">"SQL"</span><br>
+              &nbsp;&nbsp;],<br>
+              &nbsp;&nbsp;<span class="code-prop">coffeeLevel</span>: <span class="code-num">100</span>,<br>
+              &nbsp;&nbsp;<span class="code-prop">readyToCollaborate</span>: <span class="code-keyword">true</span><br>
+              };<br><br>
+              <span class="code-comment">// Let's build something extraordinary together.</span>
             </div>
-        </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="section-wrapper">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Executive Summary</span>
-                    <h2>About Me</h2>
-                    <p class="section-subtitle">Bridging technical execution with business strategy to design dependable
-                        solutions.</p>
-                </div>
-
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>
-                            Hello and welcome to my professional portfolio. I am currently pursuing my Bachelor of
-                            Science in Information Systems &amp; Decision Sciences (ISDS) at the E. J. Ourso College of
-                            Business at Louisiana State University.
-                        </p>
-                        <p>
-                            In today's fast-moving technological landscape, successful organizations don't just write
-                            software—they clearly specify what systems must achieve, encode those specifications for
-                            repeatable performance, and critically evaluate outputs. My coursework and hands-on projects
-                            emphasize this exact managerial discipline: leveraging generative AI workflows, automated
-                            scripting, and modern system architectures to streamline operations.
-                        </p>
-                        <p>
-                            Whether collaborating in two-person agile pair programming teams (as both driver and
-                            navigator) or building custom analytical data pipelines in Python, I bring strong analytical
-                            rigor, clear communication, and an eagerness to deliver measurable value.
-                        </p>
-                    </div>
-
-                    <div class="highlights-box">
-                        <h3>Key Competencies at a Glance</h3>
-                        <p>Areas of focus that deliver direct value to prospective employers:</p>
-                        <ul class="pill-list">
-                            <li class="pill active">Systems Analysis</li>
-                            <li class="pill active">Process Automation</li>
-                            <li class="pill active">Python Programming</li>
-                            <li class="pill active">Agile Pair Programming</li>
-                            <li class="pill">Database Queries (SQL)</li>
-                            <li class="pill">Technical Documentation</li>
-                            <li class="pill">Vibe Coding &amp; AI Agents</li>
-                            <li class="pill">Git / GitHub Version Control</li>
-                            <li class="pill">Requirements Engineering</li>
-                        </ul>
-                    </div>
-                </div>
+            <!-- Floating UI Pills -->
+            <div class="floating-pill pill-top-right">
+              <i class="fas fa-check-circle" style="color: var(--success);"></i> Clean Architecture
             </div>
-        </section>
-
-        <!-- Skills Section with Category Filter -->
-        <section id="skills" class="section-wrapper bg-alt">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">Skills &amp; Capabilities</span>
-                    <h2>Technical &amp; Professional Competencies</h2>
-                    <p class="section-subtitle">A balanced toolkit designed for systems analysis, software development,
-                        and technical collaboration.</p>
-                </div>
-
-                <!-- Interactive Filter Buttons -->
-                <div class="skills-filter-bar">
-                    <button type="button" class="filter-btn active" data-filter="all">All Competencies</button>
-                    <button type="button" class="filter-btn" data-filter="programming">Programming &amp; Data</button>
-                    <button type="button" class="filter-btn" data-filter="systems">Systems &amp; Methods</button>
-                    <button type="button" class="filter-btn" data-filter="tools">Tools &amp; Platforms</button>
-                    <button type="button" class="filter-btn" data-filter="business">Business &amp; Leadership</button>
-                </div>
-
-                <div class="card-grid-3">
-                    <!-- Category 1 -->
-                    <div class="skill-card" data-category="programming">
-                        <div class="skill-card-header">
-                            <span class="skill-card-icon">&#128187;</span>
-                            <h3>Programming &amp; Data</h3>
-                        </div>
-                        <ul class="skill-pills">
-                            <li class="skill-pill"><span>🐍</span> Python 3</li>
-                            <li class="skill-pill"><span>🗄️</span> SQL</li>
-                            <li class="skill-pill"><span>🌐</span> HTML5 / CSS3</li>
-                            <li class="skill-pill"><span>⚡</span> Data Structures</li>
-                            <li class="skill-pill"><span>📊</span> Algorithmic Logic</li>
-                            <li class="skill-pill"><span>📈</span> Data Aggregation</li>
-                        </ul>
-                    </div>
-
-                    <!-- Category 2 -->
-                    <div class="skill-card" data-category="systems">
-                        <div class="skill-card-header">
-                            <span class="skill-card-icon">&#9881;</span>
-                            <h3>Systems &amp; Methods</h3>
-                        </div>
-                        <ul class="skill-pills">
-                            <li class="skill-pill"><span>🏛️</span> Systems Architecture</li>
-                            <li class="skill-pill"><span>👥</span> Agile Pair Programming</li>
-                            <li class="skill-pill"><span>🤖</span> Vibe Coding &amp; Agents</li>
-                            <li class="skill-pill"><span>📋</span> Requirements Elicitation</li>
-                            <li class="skill-pill"><span>📐</span> Process Flow Modeling</li>
-                            <li class="skill-pill"><span>🔄</span> SDLC Foundations</li>
-                        </ul>
-                    </div>
-
-                    <!-- Category 3 -->
-                    <div class="skill-card" data-category="tools">
-                        <div class="skill-card-header">
-                            <span class="skill-card-icon">&#128295;</span>
-                            <h3>Tools &amp; Platforms</h3>
-                        </div>
-                        <ul class="skill-pills">
-                            <li class="skill-pill"><span>🐙</span> Git Version Control</li>
-                            <li class="skill-pill"><span>🚀</span> GitHub Pages</li>
-                            <li class="skill-pill"><span>✨</span> Antigravity IDE</li>
-                            <li class="skill-pill"><span>💻</span> VS Code</li>
-                            <li class="skill-pill"><span>⌨️</span> Command Line / CLI</li>
-                            <li class="skill-pill"><span>🧠</span> Claude Code</li>
-                        </ul>
-                    </div>
-
-                    <!-- Category 4 -->
-                    <div class="skill-card" data-category="business">
-                        <div class="skill-card-header">
-                            <span class="skill-card-icon">&#128202;</span>
-                            <h3>Business &amp; Analytics</h3>
-                        </div>
-                        <ul class="skill-pills">
-                            <li class="skill-pill">Quantitative Analytics</li>
-                            <li class="skill-pill">Business Case Analysis</li>
-                            <li class="skill-pill">Technical Documentation</li>
-                            <li class="skill-pill">Decision Modeling</li>
-                            <li class="skill-pill">Spreadsheet Modeling</li>
-                        </ul>
-                    </div>
-
-                    <!-- Category 5 -->
-                    <div class="skill-card" data-category="business">
-                        <div class="skill-card-header">
-                            <span class="skill-card-icon">&#129309;</span>
-                            <h3>Collaboration &amp; Leadership</h3>
-                        </div>
-                        <ul class="skill-pills">
-                            <li class="skill-pill">Driver &amp; Navigator Roles</li>
-                            <li class="skill-pill">Cross-Functional Communication</li>
-                            <li class="skill-pill">Peer Code Review</li>
-                            <li class="skill-pill">Critical Thinking</li>
-                            <li class="skill-pill">Problem Decomposition</li>
-                        </ul>
-                    </div>
-
-                    <!-- Category 6 -->
-                    <div class="skill-card" data-category="systems">
-                        <div class="skill-card-header">
-                            <span class="skill-card-icon">&#127942;</span>
-                            <h3>Academic Focus</h3>
-                        </div>
-                        <ul class="skill-pills">
-                            <li class="skill-pill">IS Foundations (ISDS 3100)</li>
-                            <li class="skill-pill">Information Architecture</li>
-                            <li class="skill-pill">Telecommunications</li>
-                            <li class="skill-pill">Enterprise Systems</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="floating-pill pill-bottom-left">
+              <i class="fas fa-bolt" style="color: #f59e0b;"></i> High Performance
             </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="section-wrapper">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Work History</span>
-                    <h2>Experience &amp; Roles</h2>
-                    <p class="section-subtitle">Practical applications in software development, team projects, and
-                        academic automation.</p>
-                </div>
-
-                <div class="timeline">
-                    <!-- Timeline Item 1 -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-meta">
-                                <h3 class="timeline-title">Agile Developer &amp; Systems Navigator (Team Project)</h3>
-                                <span class="timeline-badge">Fall 2026 &ndash; Present</span>
-                            </div>
-                            <p class="timeline-org">SDEIS Department &bull; E. J. Ourso College of Business &bull; LSU
-                            </p>
-                            <ul class="timeline-bullets">
-                                <li>Practice paired programming in alternating <strong>Driver</strong> (code synthesis,
-                                    execution) and <strong>Navigator</strong> (architecture, error spotting, code
-                                    review) modalities.</li>
-                                <li>Architect and vibe-code personal and team web applications adhering to strict
-                                    professional standards, semantic HTML structure, and responsive design systems.</li>
-                                <li>Manage code versioning, branch merges, and public deployments directly using Git and
-                                    GitHub Pages.</li>
-                                <li>Formulate, evaluate, and test autonomous agent skills to automate multi-step
-                                    organizational workflows.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Item 2 -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-meta">
-                                <h3 class="timeline-title">Technology &amp; Academic Projects Assistant</h3>
-                                <span class="timeline-badge">2024 &ndash; Present</span>
-                            </div>
-                            <p class="timeline-org">Information Systems &amp; Decision Sciences &bull; Baton Rouge, LA
-                            </p>
-                            <ul class="timeline-bullets">
-                                <li>Developed automated Python programs to parse data collections, compute statistical
-                                    metrics (averages, distributions, extrema), and generate formatted summary reports.
-                                </li>
-                                <li>Conducted detailed analytical evaluations of enterprise systems, IT infrastructure
-                                    options, and software adoption roadmaps.</li>
-                                <li>Created structured technical specifications, flow diagrams, and user-facing guides
-                                    for multi-member project teams.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Projects Section with Browser Chrome -->
-        <section id="projects" class="section-wrapper bg-alt">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">Portfolio Highlights</span>
-                    <h2>Featured Projects</h2>
-                    <p class="section-subtitle">Real-world systems projects demonstrating architecture, coding, and
-                        problem solving.</p>
-                </div>
-
-                <div class="card-grid-3">
-                    <!-- Project 1 -->
-                    <div class="project-card">
-                        <div class="browser-chrome">
-                            <div class="window-dots">
-                                <span class="window-dot red"></span>
-                                <span class="window-dot yellow"></span>
-                                <span class="window-dot green"></span>
-                            </div>
-                            <span class="browser-url">github.io/andrew-west</span>
-                        </div>
-                        <div class="project-header">
-                            <span class="project-category">Web Development &amp; Cloud Hosting</span>
-                            <h3 class="project-title">Personal Hybrid Portfolio Website</h3>
-                        </div>
-                        <div class="project-body">
-                            <div class="impact-badge">&#128640; 100% Responsive &bull; Recruiter-Targeted</div>
-                            <p class="project-desc">
-                                A recruiter-targeted personal website built with a modern hybrid layout. Combines
-                                single-page high-level navigation with modular expansion pages for deep-dive resume
-                                credentials and projects.
-                            </p>
-                            <ul class="project-tech">
-                                <li class="tech-tag">HTML5</li>
-                                <li class="tech-tag">CSS3 (Vanilla)</li>
-                                <li class="tech-tag">JavaScript</li>
-                                <li class="tech-tag">GitHub Pages</li>
-                            </ul>
-                        </div>
-                        <div class="project-footer">
-                            <a href="project.html" class="btn btn-outline btn-sm">Explore Project &rarr;</a>
-                            <a href="https://github.com" target="_blank" class="btn btn-secondary btn-sm"
-                                rel="noopener noreferrer">Code Repo</a>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-card">
-                        <div class="browser-chrome">
-                            <div class="window-dots">
-                                <span class="window-dot red"></span>
-                                <span class="window-dot yellow"></span>
-                                <span class="window-dot green"></span>
-                            </div>
-                            <span class="browser-url">python/data-validator.py</span>
-                        </div>
-                        <div class="project-header">
-                            <span class="project-category">Python &amp; Data Engineering</span>
-                            <h3 class="project-title">Algorithmic Data Aggregator &amp; Validator</h3>
-                        </div>
-                        <div class="project-body">
-                            <div class="impact-badge">&#9889; Reduced Processing Time by 85%</div>
-                            <p class="project-desc">
-                                A modular Python program implementing iterative control structures, numerical
-                                processing, and data verification against organizational benchmarks, including automated
-                                error logging.
-                            </p>
-                            <ul class="project-tech">
-                                <li class="tech-tag">Python 3</li>
-                                <li class="tech-tag">Algorithms</li>
-                                <li class="tech-tag">Data Validation</li>
-                                <li class="tech-tag">Unit Testing</li>
-                            </ul>
-                        </div>
-                        <div class="project-footer">
-                            <a href="project.html" class="btn btn-outline btn-sm">View Case Study &rarr;</a>
-                            <span class="tech-tag">Completed</span>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-card">
-                        <div class="browser-chrome">
-                            <div class="window-dots">
-                                <span class="window-dot red"></span>
-                                <span class="window-dot yellow"></span>
-                                <span class="window-dot green"></span>
-                            </div>
-                            <span class="browser-url">agents/skills/SKILL.md</span>
-                        </div>
-                        <div class="project-header">
-                            <span class="project-category">Autonomous AI &amp; Process Automation</span>
-                            <h3 class="project-title">Self-Triggering Agent Skill Development</h3>
-                        </div>
-                        <div class="project-body">
-                            <div class="impact-badge">&#129302; Deterministic Task Automation</div>
-                            <p class="project-desc">
-                                Engineered a packaged agent skill with YAML frontmatter, deterministic execution
-                                protocols, and reference assets for Claude Code and Antigravity, automating repeatable
-                                administrative procedures.
-                            </p>
-                            <ul class="project-tech">
-                                <li class="tech-tag">Agent Skills</li>
-                                <li class="tech-tag">SKILL.md</li>
-                                <li class="tech-tag">Workflow Automation</li>
-                                <li class="tech-tag">Claude Code</li>
-                            </ul>
-                        </div>
-                        <div class="project-footer">
-                            <a href="project.html" class="btn btn-outline btn-sm">View Architecture &rarr;</a>
-                            <span class="tech-tag">In Progress</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="section-wrapper">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Academic Background</span>
-                    <h2>Education &amp; Coursework</h2>
-                    <p class="section-subtitle">Rigorous business school foundations paired with technical systems
-                        training.</p>
-                </div>
-
-                <div class="edu-card">
-                    <div class="edu-main">
-                        <span class="edu-meta-pill">Bachelor of Science Degree</span>
-                        <h3>Information Systems &amp; Decision Sciences (ISDS)</h3>
-                        <p class="edu-school">Louisiana State University (LSU)</p>
-                        <p class="edu-location">E. J. Ourso College of Business &bull; Baton Rouge, LA</p>
-                        <p><strong>Expected Graduation:</strong> May 2027</p>
-                        <p><strong>Academic Focus:</strong> Systems Analysis, Enterprise Systems, Business Data
-                            Communications, and Algorithmic Automation.</p>
-                    </div>
-
-                    <div class="edu-coursework">
-                        <h3>Key Coursework</h3>
-                        <div class="course-grid">
-                            <div class="course-item">
-                                <strong>ISDS 3100</strong><br>
-                                Information Systems Foundations
-                            </div>
-                            <div class="course-item">
-                                <strong>ISDS 3107</strong><br>
-                                Business Systems Development
-                            </div>
-                            <div class="course-item">
-                                <strong>Database Mgmt</strong><br>
-                                Relational Data &amp; SQL
-                            </div>
-                            <div class="course-item">
-                                <strong>Data Networks</strong><br>
-                                Telecommunications &amp; Cloud
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Recruiter FAQ Accordion Section -->
-        <section id="faq" class="section-wrapper bg-alt">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">Recruiting FAQs</span>
-                    <h2>Frequently Asked Questions</h2>
-                    <p class="section-subtitle">Quick answers to common recruiter and hiring manager questions.</p>
-                </div>
-
-                <div class="faq-list">
-                    <div class="faq-item active">
-                        <button type="button" class="faq-question">
-                            <span>What roles and internships is Andrew seeking?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>I am seeking Summer 2027 internships and entry-level full-time opportunities (beginning
-                                post-graduation in May 2027) as a <strong>Systems Analyst</strong>, <strong>Business
-                                    Technology Analyst</strong>, <strong>Junior Data Analyst/Engineer</strong>, or
-                                <strong>Associate Software Developer</strong>.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button type="button" class="faq-question">
-                            <span>Is Andrew willing to relocate or work hybrid/remote?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Yes! While currently based on campus at LSU in Baton Rouge, Louisiana, I am fully open to
-                                nationwide relocation, hybrid office arrangements, and fully remote positions.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button type="button" class="faq-question">
-                            <span>What distinguishes Andrew's background from traditional computer science or business
-                                majors?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>As an ISDS major in the E. J. Ourso College of Business, I am trained to understand both
-                                the <em>commercial balance sheet</em> and the <em>technical codebase</em>. I don't just
-                                write scripts; I understand how technological architecture drives organizational profit,
-                                efficiency, and scalability.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button type="button" class="faq-question">
-                            <span>What experience does Andrew have with Generative AI &amp; Modern IDEs?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Extensive experience with Google Antigravity IDE and Claude Code, specializing in prompt
-                                architecture, autonomous agent skill creation (`SKILL.md`), and review-driven vibe
-                                coding where the human acts as the strategic architect and navigator.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Dedicated Resume Banner -->
-        <section class="section-wrapper" style="padding-top: 0;">
-            <div class="container">
-                <div class="resume-banner">
-                    <div class="resume-banner-content">
-                        <h2>Looking for my complete resume?</h2>
-                        <p>Review my detailed academic credentials, professional experience history, awards, and
-                            technical skill certifications on my dedicated resume page.</p>
-                    </div>
-                    <div>
-                        <a href="resume.html" class="btn btn-lg">View Full Resume (resume.html) &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section-wrapper bg-alt">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">Let's Connect</span>
-                    <h2>Contact Information &amp; Inquiries</h2>
-                    <p class="section-subtitle">Interested in discussing an internship, analyst opportunity, or project
-                        collaboration? Reach out directly.</p>
-                </div>
-
-                <div class="contact-grid">
-                    <!-- Direct Info Card -->
-                    <div class="contact-info-card">
-                        <h3>Direct Channels</h3>
-                        <p>I actively monitor email and LinkedIn and will promptly respond to recruiting inquiries.</p>
-
-                        <ul class="contact-links-list">
-                            <li class="contact-link-item">
-                                <div class="contact-icon">&#9993;</div>
-                                <div>
-                                    <div class="contact-label">Email Address</div>
-                                    <div class="contact-value">
-                                        <a href="mailto:adwest0127@gmail.com">adwest0127@gmail.com</a>
-                                        <button type="button" class="copy-email-btn"
-                                            style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.2rem 0.5rem;">Copy</button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="contact-link-item">
-                                <div class="contact-icon">&#128188;</div>
-                                <div>
-                                    <div class="contact-label">LinkedIn Profile</div>
-                                    <div class="contact-value"><a href="https://linkedin.com" target="_blank"
-                                            rel="noopener noreferrer">Connect on LinkedIn &rarr;</a></div>
-                                </div>
-                            </li>
-                            <li class="contact-link-item">
-                                <div class="contact-icon">&#128187;</div>
-                                <div>
-                                    <div class="contact-label">GitHub Profile</div>
-                                    <div class="contact-value"><a href="https://github.com" target="_blank"
-                                            rel="noopener noreferrer">View Repositories &rarr;</a></div>
-                                </div>
-                            </li>
-                            <li class="contact-link-item">
-                                <div class="contact-icon">&#128205;</div>
-                                <div>
-                                    <div class="contact-label">Location</div>
-                                    <div class="contact-value">Baton Rouge, Louisiana (LSU Campus)</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Modern Contact Form -->
-                    <div class="contact-form-card">
-                        <form action="mailto:adwest0127@gmail.com" method="post" enctype="text/plain">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="contact-name" class="form-label">Full Name *</label>
-                                    <input type="text" id="contact-name" name="name" class="form-control"
-                                        placeholder="e.g., Sarah Jenkins" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="contact-email" class="form-label">Email Address *</label>
-                                    <input type="email" id="contact-email" name="email" class="form-control"
-                                        placeholder="name@company.com" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="contact-organization" class="form-label">Company / Organization</label>
-                                <input type="text" id="contact-organization" name="organization" class="form-control"
-                                    placeholder="e.g., Enterprise Tech Partners">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="contact-subject" class="form-label">Subject *</label>
-                                <input type="text" id="contact-subject" name="subject" class="form-control"
-                                    placeholder="Internship Opportunity / Inquiry" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="contact-message" class="form-label">Message *</label>
-                                <textarea id="contact-message" name="message" class="form-control"
-                                    placeholder="Share details about the role or project..." required></textarea>
-                            </div>
-
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary btn-lg">Send Message &rarr;</button>
-                                <button type="reset" class="btn btn-secondary">Reset</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span>Andrew West</span>
-                    <p style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem;">Information Systems &amp;
-                        Decision Sciences &bull; LSU</p>
-                </div>
-                <ul class="footer-nav">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="project.html">Featured Project</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Andrew West. Hosted via GitHub Pages. E. J. Ourso College of Business, LSU.</p>
-                <p><a href="#top">Back to top &uarr;</a></p>
-            </div>
+          </div>
         </div>
-    </footer>
 
-    <!-- Floating Scroll-To-Top Button -->
-    <button type="button" id="scroll-top-btn" class="scroll-top-btn" title="Back to top"
-        aria-label="Back to top">&uarr;</button>
+      </div>
+    </section>
 
-    <!-- Interactive Scripts -->
-    <script src="script.js"></script>
+    <!-- ===================================================================
+         02. ABOUT SECTION
+         =================================================================== -->
+    <section class="about-section" id="about">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">01. Who I Am</span>
+          <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+          <p class="section-subtitle">A brief glimpse into my background, my journey, and what drives my craft every day.</p>
+        </div>
 
+        <div class="about-grid">
+          
+          <!-- Left: Profile Avatar / Photo Frame -->
+          <div class="about-photo-wrapper">
+            <div class="photo-frame">
+              <!-- EDIT: If you have a headshot image, replace the placeholder below with:
+                   <img src="assets/profile.jpg" alt="[Your Name]" style="width: 100%; height: 100%; object-fit: cover;"> -->
+              <div class="avatar-placeholder">
+                <div class="avatar-icon-circle">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="avatar-badge-text">[Your Photo Here]</div>
+                <p class="placeholder-hint">Square or portrait headshot</p>
+              </div>
+            </div>
+
+            <!-- Floating Experience Badge -->
+            <!-- EDIT: Update the years of experience or key achievement -->
+            <div class="about-badge-exp">
+              <div class="exp-number">[X]+</div>
+              <div class="exp-label">Years of Experience</div>
+            </div>
+          </div>
+
+          <!-- Right: Bio Information & Highlights -->
+          <div class="about-info-col">
+            <!-- EDIT: Bio Paragraph 1 -->
+            <p class="about-bio-text">
+              <strong>Hello!</strong> I am [Your Name], a software developer based in [Your Location / Remote]. I specialize in crafting elegant user interfaces, architecting performant backends, and bridging the gap between design and functionality.
+            </p>
+
+            <!-- EDIT: Bio Paragraph 2 -->
+            <p class="about-bio-text">
+              [Add a second paragraph about your journey: how you learned programming, your past successes, the kinds of teams or clients you enjoy working with, and the technologies you are currently enthusiastic about exploring.]
+            </p>
+
+            <!-- Key Strengths / Philosophy Highlights -->
+            <div class="about-highlights-grid">
+              <div class="highlight-item">
+                <i class="fas fa-code-branch highlight-icon"></i>
+                <div>
+                  <strong>Clean Code Advocate</strong>
+                  <span>Maintainable, testable, and self-documenting standards.</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-laptop-code highlight-icon"></i>
+                <div>
+                  <strong>Modern Tech Stack</strong>
+                  <span>Always adopting industry-proven tools and frameworks.</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-users-gear highlight-icon"></i>
+                <div>
+                  <strong>Collaborative Mindset</strong>
+                  <span>Effective communicator in agile and cross-functional teams.</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-shield-halved highlight-icon"></i>
+                <div>
+                  <strong>Performance & Security</strong>
+                  <span>Fast load times, robust data protection, and responsive layouts.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Stats Row -->
+            <!-- EDIT: Adjust numbers to match your actual stats -->
+            <div class="about-stats">
+              <div class="stat-item">
+                <div class="stat-value gradient-text">[25]+</div>
+                <div class="stat-name">Projects Completed</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value gradient-text">[15]+</div>
+                <div class="stat-name">Happy Clients / Teams</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value gradient-text">100%</div>
+                <div class="stat-name">Commitment to Quality</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         03. SKILLS & TECHNICAL EXPERTISE SECTION
+         =================================================================== -->
+    <section class="skills-section" id="skills">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">02. Capabilities</span>
+          <h2 class="section-title">Technical <span class="gradient-text">Arsenal</span></h2>
+          <p class="section-subtitle">The tools, technologies, and methodologies I leverage to bring ideas to life.</p>
+        </div>
+
+        <div class="skills-grid">
+          
+          <!-- Category 1: Frontend Development -->
+          <div class="glass-card skill-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <i class="fas fa-desktop"></i>
+              </div>
+              <div>
+                <h3 class="skill-category-title">Frontend Engineering</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">User interfaces & client state</span>
+              </div>
+            </div>
+            <!-- EDIT: Add, remove, or modify skills in this list -->
+            <div class="skill-pill-list">
+              <span class="skill-pill"><i class="fab fa-html5"></i> HTML5 & CSS3</span>
+              <span class="skill-pill"><i class="fab fa-js"></i> JavaScript (ES6+)</span>
+              <span class="skill-pill"><i class="fas fa-code"></i> TypeScript</span>
+              <span class="skill-pill"><i class="fab fa-react"></i> React.js</span>
+              <span class="skill-pill"><i class="fas fa-layer-group"></i> Next.js</span>
+              <span class="skill-pill"><i class="fab fa-vuejs"></i> Vue.js</span>
+              <span class="skill-pill"><i class="fas fa-palette"></i> Responsive Design</span>
+              <span class="skill-pill"><i class="fas fa-wind"></i> Tailwind CSS / SASS</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Backend & Databases -->
+          <div class="glass-card skill-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <i class="fas fa-server"></i>
+              </div>
+              <div>
+                <h3 class="skill-category-title">Backend & APIs</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Services, data storage & logic</span>
+              </div>
+            </div>
+            <!-- EDIT: Add, remove, or modify skills in this list -->
+            <div class="skill-pill-list">
+              <span class="skill-pill"><i class="fab fa-node-js"></i> Node.js</span>
+              <span class="skill-pill"><i class="fas fa-bolt"></i> Express / Fastify</span>
+              <span class="skill-pill"><i class="fab fa-python"></i> Python / Django</span>
+              <span class="skill-pill"><i class="fas fa-database"></i> PostgreSQL & MySQL</span>
+              <span class="skill-pill"><i class="fas fa-leaf"></i> MongoDB</span>
+              <span class="skill-pill"><i class="fas fa-network-wired"></i> RESTful APIs</span>
+              <span class="skill-pill"><i class="fas fa-project-diagram"></i> GraphQL</span>
+              <span class="skill-pill"><i class="fas fa-key"></i> Auth & Security (JWT, OAuth)</span>
+            </div>
+          </div>
+
+          <!-- Category 3: DevOps & Cloud Architecture -->
+          <div class="glass-card skill-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <i class="fas fa-cloud"></i>
+              </div>
+              <div>
+                <h3 class="skill-category-title">DevOps & Cloud</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Deployment, CI/CD & hosting</span>
+              </div>
+            </div>
+            <!-- EDIT: Add, remove, or modify skills in this list -->
+            <div class="skill-pill-list">
+              <span class="skill-pill"><i class="fab fa-git-alt"></i> Git & GitHub</span>
+              <span class="skill-pill"><i class="fab fa-docker"></i> Docker</span>
+              <span class="skill-pill"><i class="fab fa-aws"></i> AWS / Cloud</span>
+              <span class="skill-pill"><i class="fas fa-rocket"></i> Vercel / Netlify</span>
+              <span class="skill-pill"><i class="fas fa-gears"></i> CI/CD Pipelines</span>
+              <span class="skill-pill"><i class="fab fa-linux"></i> Linux CLI</span>
+              <span class="skill-pill"><i class="fas fa-microchip"></i> Serverless Functions</span>
+            </div>
+          </div>
+
+          <!-- Category 4: Design & Methodologies -->
+          <div class="glass-card skill-card">
+            <div class="skill-category-header">
+              <div class="skill-category-icon">
+                <i class="fas fa-compass-drafting"></i>
+              </div>
+              <div>
+                <h3 class="skill-category-title">Design & Practices</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Workflow, UX & testing</span>
+              </div>
+            </div>
+            <!-- EDIT: Add, remove, or modify skills in this list -->
+            <div class="skill-pill-list">
+              <span class="skill-pill"><i class="fab fa-figma"></i> Figma UI/UX</span>
+              <span class="skill-pill"><i class="fas fa-vial"></i> Unit & E2E Testing</span>
+              <span class="skill-pill"><i class="fas fa-diagram-project"></i> Agile / Scrum</span>
+              <span class="skill-pill"><i class="fas fa-magnifying-glass"></i> SEO & Core Web Vitals</span>
+              <span class="skill-pill"><i class="fas fa-universal-access"></i> Web Accessibility (a11y)</span>
+              <span class="skill-pill"><i class="fas fa-bug"></i> Debugging & Profiling</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         04. FEATURED PROJECTS SECTION
+         =================================================================== -->
+    <section class="projects-section" id="projects">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">03. Selected Work</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+          <p class="section-subtitle">A showcase of recent web applications, system designs, and personal builds.</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="projects-filter-bar">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+          <button class="filter-btn" data-filter="frontend">Frontend</button>
+          <button class="filter-btn" data-filter="backend">Backend & APIs</button>
+        </div>
+
+        <!-- Projects Grid Container -->
+        <div class="projects-grid">
+          
+          <!-- ================= PROJECT 01 ================= -->
+          <div class="glass-card project-card" data-category="fullstack">
+            <!-- Project Image / Mockup Preview Area -->
+            <div class="project-image-box">
+              <span class="project-badge">Full Stack</span>
+              <div class="project-mockup-graphic">
+                <i class="fas fa-store"></i>
+                <span class="placeholder-hint">[Project Screenshot 1]</span>
+              </div>
+            </div>
+
+            <!-- Project Details -->
+            <div class="project-content">
+              <!-- EDIT: Project Title -->
+              <h3 class="project-title">[Project Name 1: Next-Gen E-Commerce]</h3>
+              <!-- EDIT: Project Short Description -->
+              <p class="project-desc">
+                [A high-performance modern e-commerce storefront with real-time stock sync, secure Stripe payment gateway, and an analytics dashboard.]
+              </p>
+              
+              <!-- Tech Stack Badges -->
+              <div class="project-tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Stripe API</span>
+              </div>
+
+              <!-- Action Links -->
+              <div class="project-actions">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="project-action-link">
+                  <i class="fas fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="project-action-link">
+                  <i class="fab fa-github"></i> GitHub Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= PROJECT 02 ================= -->
+          <div class="glass-card project-card" data-category="fullstack">
+            <div class="project-image-box">
+              <span class="project-badge">Full Stack</span>
+              <div class="project-mockup-graphic">
+                <i class="fas fa-chart-line"></i>
+                <span class="placeholder-hint">[Project Screenshot 2]</span>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <!-- EDIT: Project Title -->
+              <h3 class="project-title">[Project Name 2: SaaS Workflow Dashboard]</h3>
+              <!-- EDIT: Project Short Description -->
+              <p class="project-desc">
+                [A comprehensive collaborative task and project management application featuring drag-and-drop kanban boards, team chat, and metrics visualization.]
+              </p>
+              
+              <div class="project-tech-stack">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Tailwind</span>
+                <span class="tech-tag">Prisma ORM</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="project-action-link">
+                  <i class="fas fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="project-action-link">
+                  <i class="fab fa-github"></i> GitHub Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= PROJECT 03 ================= -->
+          <div class="glass-card project-card" data-category="frontend">
+            <div class="project-image-box">
+              <span class="project-badge">Frontend</span>
+              <div class="project-mockup-graphic">
+                <i class="fas fa-robot"></i>
+                <span class="placeholder-hint">[Project Screenshot 3]</span>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <!-- EDIT: Project Title -->
+              <h3 class="project-title">[Project Name 3: AI Assistant Studio]</h3>
+              <!-- EDIT: Project Short Description -->
+              <p class="project-desc">
+                [An interactive playground and conversational interface connecting multiple generative AI models with streaming responses and markdown rendering.]
+              </p>
+              
+              <div class="project-tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">WebSockets</span>
+                <span class="tech-tag">CSS Modules</span>
+                <span class="tech-tag">OpenAI API</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="project-action-link">
+                  <i class="fas fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="project-action-link">
+                  <i class="fab fa-github"></i> GitHub Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= PROJECT 04 ================= -->
+          <div class="glass-card project-card" data-category="backend">
+            <div class="project-image-box">
+              <span class="project-badge">Backend & API</span>
+              <div class="project-mockup-graphic">
+                <i class="fas fa-cloud-arrow-up"></i>
+                <span class="placeholder-hint">[Project Screenshot 4]</span>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <!-- EDIT: Project Title -->
+              <h3 class="project-title">[Project Name 4: Cloud Media Processing API]</h3>
+              <!-- EDIT: Project Short Description -->
+              <p class="project-desc">
+                [Scalable microservices REST API for automated image optimization, watermarking, and secure S3 asset pipeline with rate limiting.]
+              </p>
+              
+              <div class="project-tech-stack">
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">AWS S3</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+
+              <div class="project-actions">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="project-action-link">
+                  <i class="fas fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="project-action-link">
+                  <i class="fab fa-github"></i> GitHub Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         05. EXPERIENCE & EDUCATION SECTION
+         =================================================================== -->
+    <section class="experience-section" id="experience">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">04. Career Path</span>
+          <h2 class="section-title">Experience & <span class="gradient-text">Education</span></h2>
+          <p class="section-subtitle">My professional timeline, leadership roles, and academic background.</p>
+        </div>
+
+        <!-- Timeline Tab Switcher -->
+        <div class="timeline-tabs">
+          <button class="timeline-tab-btn active" data-tab="work">Work Experience</button>
+          <button class="timeline-tab-btn" data-tab="education">Education & Degrees</button>
+        </div>
+
+        <!-- Work Experience Timeline -->
+        <div class="timeline-container" id="timeline-work">
+          
+          <!-- Experience Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header-row">
+                <h3 class="timeline-role">[Senior / Lead Software Engineer]</h3>
+                <span class="timeline-date-badge">2023 — Present</span>
+              </div>
+              <div class="timeline-org">[Company or Organization Name] • [City, Country / Remote]</div>
+              <ul class="timeline-bullets">
+                <li>[Led architectural revamp of core client-facing platform, improving page load speeds by 45%.]</li>
+                <li>[Mentored junior and mid-level developers, conducted code reviews, and championed best practices.]</li>
+                <li>[Spearheaded integration with 3rd-party enterprise APIs and ensured 99.9% application uptime.]</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header-row">
+                <h3 class="timeline-role">[Full Stack Developer]</h3>
+                <span class="timeline-date-badge">2021 — 2023</span>
+              </div>
+              <div class="timeline-org">[Previous Company Name] • [Location]</div>
+              <ul class="timeline-bullets">
+                <li>[Developed responsive user interfaces with React and built RESTful microservices with Node.js/Express.]</li>
+                <li>[Engineered database schema optimizations in PostgreSQL, decreasing complex query latency by 30%.]</li>
+                <li>[Collaborated closely with UX designers and product managers in 2-week agile sprint cycles.]</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header-row">
+                <h3 class="timeline-role">[Junior Web Developer / Intern]</h3>
+                <span class="timeline-date-badge">2020 — 2021</span>
+              </div>
+              <div class="timeline-org">[Initial Company or Agency Name] • [Location]</div>
+              <ul class="timeline-bullets">
+                <li>[Constructed mobile-first landing pages and modular component libraries using HTML5, CSS3, and JavaScript.]</li>
+                <li>[Automated testing workflows and resolved cross-browser compatibility issues across modern web devices.]</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Education Timeline (Initially hidden via JS toggle) -->
+        <div class="timeline-container" id="timeline-education" style="display: none;">
+          
+          <!-- Education Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header-row">
+                <h3 class="timeline-role">[Bachelor of Science in Computer Science]</h3>
+                <span class="timeline-date-badge">[Graduation Year]</span>
+              </div>
+              <div class="timeline-org">[Your College / University Name] • [City, State/Country]</div>
+              <ul class="timeline-bullets">
+                <li>[Key Coursework: Data Structures & Algorithms, Software Engineering, Database Systems, Computer Networks.]</li>
+                <li>[Honors / Activities: Dean's List, Member of Computing Society, Capstone Project Award.]</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Education Item 2: Certifications -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header-row">
+                <h3 class="timeline-role">[Professional Certification / Specialization]</h3>
+                <span class="timeline-date-badge">[Year Acquired]</span>
+              </div>
+              <div class="timeline-org">[Issuing Body, e.g., AWS / Google Cloud / Meta / Coursera]</div>
+              <ul class="timeline-bullets">
+                <li>[AWS Certified Solutions Architect / Meta Front-End Developer Professional Certificate]</li>
+                <li>[Demonstrated expertise in cloud infrastructure, responsive design, and modern scalable application design.]</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         06. TESTIMONIALS / ENDORSEMENTS SECTION
+         =================================================================== -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">05. Recommendations</span>
+          <h2 class="section-title">What People <span class="gradient-text">Say</span></h2>
+          <p class="section-subtitle">Kind words and testimonials from engineering leads, colleagues, and collaborators.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          
+          <!-- Testimonial 1 -->
+          <div class="glass-card testimonial-card">
+            <div>
+              <i class="fas fa-quote-left quote-icon"></i>
+              <!-- EDIT: Testimonial Quote -->
+              <p class="testimonial-quote">
+                "[Your Name] is an exceptional developer who consistently delivers high-quality code on time. Their eye for detail and problem-solving velocity made a tremendous impact on our release cycles."
+              </p>
+            </div>
+            <div class="testimonial-author-box">
+              <div class="author-avatar">[JD]</div>
+              <div>
+                <!-- EDIT: Reference Name & Title -->
+                <div class="author-name">[Colleague / Manager Name]</div>
+                <div class="author-title">[Engineering Director, Company Name]</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="glass-card testimonial-card">
+            <div>
+              <i class="fas fa-quote-left quote-icon"></i>
+              <!-- EDIT: Testimonial Quote -->
+              <p class="testimonial-quote">
+                "Working with [Your Name] was a game-changer for our web product. They took complex UI/UX designs and brought them to life with fluid animations and rock-solid stability."
+              </p>
+            </div>
+            <div class="testimonial-author-box">
+              <div class="author-avatar">[AS]</div>
+              <div>
+                <!-- EDIT: Reference Name & Title -->
+                <div class="author-name">[Client / Product Lead]</div>
+                <div class="author-title">[Lead Product Designer, Agency Name]</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="glass-card testimonial-card">
+            <div>
+              <i class="fas fa-quote-left quote-icon"></i>
+              <!-- EDIT: Testimonial Quote -->
+              <p class="testimonial-quote">
+                "A true team player who communicates clearly, welcomes feedback, and raises the bar for everyone around them. I'd jump at the chance to work together again."
+              </p>
+            </div>
+            <div class="testimonial-author-box">
+              <div class="author-avatar">[MR]</div>
+              <div>
+                <!-- EDIT: Reference Name & Title -->
+                <div class="author-name">[Senior Teammate / Mentor]</div>
+                <div class="author-title">[Principal Architect, Tech Corp]</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         07. CONTACT & GET IN TOUCH SECTION
+         =================================================================== -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">06. Next Steps</span>
+          <h2 class="section-title">Let's Build <span class="gradient-text">Together</span></h2>
+          <p class="section-subtitle">Have an exciting project, open position, or question? Feel free to reach out directly.</p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Left: Direct Info Cards -->
+          <div class="contact-info-col">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.2rem;">Contact Details</h3>
+            <p style="margin-bottom: 2rem;">
+              I am currently open to full-time engineering roles, high-impact contract opportunities, and freelance projects. Let's discuss how I can contribute to your goals.
+            </p>
+
+            <div class="contact-info-cards">
+              
+              <!-- Email Card with Copy Button -->
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <div class="contact-item-label">Direct Email</div>
+                  <!-- EDIT: Replace with your actual email address -->
+                  <div class="contact-item-value" id="contact-email-text">your.email@example.com</div>
+                </div>
+                <button type="button" class="copy-email-btn" id="copy-email-btn" title="Copy email address" aria-label="Copy email">
+                  <i class="fas fa-copy"></i>
+                </button>
+              </div>
+
+              <!-- Location Card -->
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <i class="fas fa-location-dot"></i>
+                </div>
+                <div>
+                  <div class="contact-item-label">Location</div>
+                  <!-- EDIT: Replace with your location / remote preference -->
+                  <div class="contact-item-value">[Your City, Country / Remote Worldwide]</div>
+                </div>
+              </div>
+
+              <!-- Work Availability Card -->
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <i class="fas fa-calendar-check"></i>
+                </div>
+                <div>
+                  <div class="contact-item-label">Availability</div>
+                  <div class="contact-item-value">Available for immediate hire</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: Interactive Contact Form -->
+          <div class="contact-form-box">
+            <h3 style="font-size: 1.4rem; margin-bottom: 1.5rem;">Send a Message</h3>
+            
+            <form id="portfolio-contact-form">
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Your Name</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="e.g. Alex Smith" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Your Email</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="e.g. alex@example.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subject</label>
+                <input type="text" id="contact-subject" class="form-input" placeholder="Project Inquiry / Job Opportunity" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Message</label>
+                <textarea id="contact-message" class="form-textarea" placeholder="Hi! I'd love to discuss a project or opportunity with you..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary form-submit-btn">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       08. FOOTER
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      
+      <!-- Copyright & Credit -->
+      <div class="footer-text">
+        © <span id="current-year">2026</span> <strong>[Your Name]</strong>. All rights reserved. Built with passion & precision.
+      </div>
+
+      <!-- Quick Footer Links -->
+      <div class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <!-- Back to Top Button -->
+      <a href="#hero" id="back-to-top" class="back-to-top-btn" title="Back to top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+      </a>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
 </body>
-
 </html>
