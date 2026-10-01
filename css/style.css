@@ -684,12 +684,21 @@ section {
   position: relative;
   background: var(--accent-gradient-subtle);
   border: 1px solid var(--border-subtle);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.photo-frame:hover .profile-photo {
+  transform: scale(1.04);
 }
 
 .avatar-placeholder {
@@ -727,10 +736,24 @@ section {
   background: var(--bg-card);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
-  padding: 0.9rem 1.4rem;
+  padding: 0.85rem 1.3rem;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   text-align: center;
+}
+
+.about-badge-exp .exp-icon {
+  font-size: 1.4rem;
+  color: var(--accent-primary);
+  margin-bottom: 0.2rem;
+}
+
+.about-badge-exp .exp-status {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
 }
 
 .exp-number {
@@ -789,7 +812,7 @@ section {
 
 .about-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
   padding-top: 2rem;
@@ -818,8 +841,10 @@ section {
    ========================================================================== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin-inline: auto;
 }
 
 .skill-card {
@@ -917,6 +942,16 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: 2rem;
+}
+
+.projects-grid.single-project {
+  display: flex;
+  justify-content: center;
+}
+
+.projects-grid.single-project .project-card {
+  max-width: 680px;
+  width: 100%;
 }
 
 .project-card {
@@ -1511,7 +1546,7 @@ section {
   }
   
   .about-stats {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     text-align: center;
   }
   

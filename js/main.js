@@ -58,12 +58,11 @@ function initTypewriter() {
   const targetElement = document.getElementById('typewriter-text');
   if (!targetElement) return;
 
-  // Custom roles - easily customizable!
+  // Custom roles
   const roles = [
-    'Full Stack Software Engineer',
-    'Frontend & UI/UX Specialist',
-    'Cloud & Scalable Systems Builder',
-    'Creative Problem Solver'
+    'Information Systems and Decision Science',
+    'Python Coding',
+    'Data Analysis'
   ];
 
   let roleIndex = 0;
