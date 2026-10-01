@@ -27,15 +27,18 @@
             <nav aria-label="Main Navigation">
                 <ul class="nav-menu">
                     <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#pillars" class="nav-link">Value</a></li>
                     <li><a href="#skills" class="nav-link">Skills</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#faq" class="nav-link">Recruiter FAQ</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
 
             <div class="nav-actions">
+                <button type="button" id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">🌙</button>
                 <a href="resume.html" class="btn btn-secondary btn-sm">Resume</a>
                 <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
             </div>
@@ -64,7 +67,7 @@
                         </p>
 
                         <p class="hero-desc">
-                            Specializing in systems analysis, process automation, Python programming, and agile pair programming. Passionate about turning complex organizational data into clear operational advantages.
+                            Specializing in systems analysis, process automation, Python programming, and agile pair programming. Passionate about transforming organizational data into clear operational advantages.
                         </p>
 
                         <div class="hero-cta">
@@ -75,15 +78,20 @@
 
                         <div class="hero-social-links">
                             <span>Connect:</span>
-                            <a href="mailto:adwest0127@gmail.com">Email</a> &bull;
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a> &bull;
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <button type="button" class="copy-email-btn" title="Click to copy email">
+                                <span>&#128203; Copy Email</span>
+                            </button>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn &rarr;</a>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
                         </div>
                     </div>
 
-                    <!-- Profile Quick Overview Card -->
+                    <!-- Profile Quick Overview Card with Glowing Avatar -->
                     <aside class="hero-card">
-                        <div class="hero-avatar">AW</div>
+                        <div class="hero-avatar-wrapper">
+                            <div class="hero-avatar-glow"></div>
+                            <div class="hero-avatar">AW</div>
+                        </div>
                         <h3>Andrew West</h3>
                         <p class="hero-card-role">Aspiring Systems &amp; Business Analyst</p>
                         
@@ -93,11 +101,11 @@
                                 <span class="stat-value">Louisiana State University (LSU)</span>
                             </li>
                             <li class="quick-stat-item">
-                                <span class="stat-label">Major</span>
+                                <span class="stat-label">Degree</span>
                                 <span class="stat-value">B.S. in ISDS</span>
                             </li>
                             <li class="quick-stat-item">
-                                <span class="stat-label">Expected Graduation</span>
+                                <span class="stat-label">Graduation</span>
                                 <span class="stat-value">Spring 2027</span>
                             </li>
                             <li class="quick-stat-item">
@@ -110,6 +118,37 @@
                             </li>
                         </ul>
                     </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recruiter Value Pillars Section -->
+        <section id="pillars" class="section-wrapper bg-alt">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Value Proposition</span>
+                    <h2>Why Hire Andrew?</h2>
+                    <p class="section-subtitle">Three core pillars that bridge engineering precision with strategic business analysis.</p>
+                </div>
+
+                <div class="value-pillars">
+                    <div class="pillar-card">
+                        <div class="pillar-icon">&#9881;</div>
+                        <h3>1. Technical Automation</h3>
+                        <p>Proficient in Python and SQL for building data transformation pipelines, automated business rule validators, and statistical aggregators that eliminate repetitive manual workflows.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">&#128202;</div>
+                        <h3>2. Systems &amp; Business Alignment</h3>
+                        <p>Trained in the E. J. Ourso College of Business curriculum to conduct rigorous requirements engineering, process flowcharting, and SDLC architectural analysis targeted at stakeholder value.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">&#129309;</div>
+                        <h3>3. Agile Team Synergy</h3>
+                        <p>Experienced in pair programming (alternating Driver and Navigator roles), proactive peer code reviews, Git version control, and clear cross-functional technical communication.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -155,7 +194,7 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- Skills Section with Category Filter -->
         <section id="skills" class="section-wrapper bg-alt">
             <div class="container">
                 <div class="section-header text-center">
@@ -164,57 +203,66 @@
                     <p class="section-subtitle">A balanced toolkit designed for systems analysis, software development, and technical collaboration.</p>
                 </div>
 
+                <!-- Interactive Filter Buttons -->
+                <div class="skills-filter-bar">
+                    <button type="button" class="filter-btn active" data-filter="all">All Competencies</button>
+                    <button type="button" class="filter-btn" data-filter="programming">Programming &amp; Data</button>
+                    <button type="button" class="filter-btn" data-filter="systems">Systems &amp; Methods</button>
+                    <button type="button" class="filter-btn" data-filter="tools">Tools &amp; Platforms</button>
+                    <button type="button" class="filter-btn" data-filter="business">Business &amp; Leadership</button>
+                </div>
+
                 <div class="card-grid-3">
                     <!-- Category 1 -->
-                    <div class="skill-card">
+                    <div class="skill-card" data-category="programming">
                         <div class="skill-card-header">
                             <span class="skill-card-icon">&#128187;</span>
                             <h3>Programming &amp; Data</h3>
                         </div>
                         <ul class="skill-pills">
-                            <li class="skill-pill">Python 3</li>
-                            <li class="skill-pill">SQL</li>
-                            <li class="skill-pill">HTML5</li>
-                            <li class="skill-pill">Data Structures</li>
-                            <li class="skill-pill">Algorithmic Logic</li>
-                            <li class="skill-pill">Data Aggregation</li>
+                            <li class="skill-pill"><span>🐍</span> Python 3</li>
+                            <li class="skill-pill"><span>🗄️</span> SQL</li>
+                            <li class="skill-pill"><span>🌐</span> HTML5 / CSS3</li>
+                            <li class="skill-pill"><span>⚡</span> Data Structures</li>
+                            <li class="skill-pill"><span>📊</span> Algorithmic Logic</li>
+                            <li class="skill-pill"><span>📈</span> Data Aggregation</li>
                         </ul>
                     </div>
 
                     <!-- Category 2 -->
-                    <div class="skill-card">
+                    <div class="skill-card" data-category="systems">
                         <div class="skill-card-header">
                             <span class="skill-card-icon">&#9881;</span>
                             <h3>Systems &amp; Methods</h3>
                         </div>
                         <ul class="skill-pills">
-                            <li class="skill-pill">Systems Architecture</li>
-                            <li class="skill-pill">Agile Pair Programming</li>
-                            <li class="skill-pill">Vibe Coding Workflows</li>
-                            <li class="skill-pill">Requirements Elicitation</li>
-                            <li class="skill-pill">Process Flow Modeling</li>
-                            <li class="skill-pill">SDLC Foundations</li>
+                            <li class="skill-pill"><span>🏛️</span> Systems Architecture</li>
+                            <li class="skill-pill"><span>👥</span> Agile Pair Programming</li>
+                            <li class="skill-pill"><span>🤖</span> Vibe Coding &amp; Agents</li>
+                            <li class="skill-pill"><span>📋</span> Requirements Elicitation</li>
+                            <li class="skill-pill"><span>📐</span> Process Flow Modeling</li>
+                            <li class="skill-pill"><span>🔄</span> SDLC Foundations</li>
                         </ul>
                     </div>
 
                     <!-- Category 3 -->
-                    <div class="skill-card">
+                    <div class="skill-card" data-category="tools">
                         <div class="skill-card-header">
                             <span class="skill-card-icon">&#128295;</span>
                             <h3>Tools &amp; Platforms</h3>
                         </div>
                         <ul class="skill-pills">
-                            <li class="skill-pill">Git Version Control</li>
-                            <li class="skill-pill">GitHub &amp; GitHub Pages</li>
-                            <li class="skill-pill">Antigravity IDE</li>
-                            <li class="skill-pill">VS Code</li>
-                            <li class="skill-pill">Command Line / CLI</li>
-                            <li class="skill-pill">Claude Code Workflows</li>
+                            <li class="skill-pill"><span>🐙</span> Git Version Control</li>
+                            <li class="skill-pill"><span>🚀</span> GitHub Pages</li>
+                            <li class="skill-pill"><span>✨</span> Antigravity IDE</li>
+                            <li class="skill-pill"><span>💻</span> VS Code</li>
+                            <li class="skill-pill"><span>⌨️</span> Command Line / CLI</li>
+                            <li class="skill-pill"><span>🧠</span> Claude Code</li>
                         </ul>
                     </div>
 
                     <!-- Category 4 -->
-                    <div class="skill-card">
+                    <div class="skill-card" data-category="business">
                         <div class="skill-card-header">
                             <span class="skill-card-icon">&#128202;</span>
                             <h3>Business &amp; Analytics</h3>
@@ -229,7 +277,7 @@
                     </div>
 
                     <!-- Category 5 -->
-                    <div class="skill-card">
+                    <div class="skill-card" data-category="business">
                         <div class="skill-card-header">
                             <span class="skill-card-icon">&#129309;</span>
                             <h3>Collaboration &amp; Leadership</h3>
@@ -244,7 +292,7 @@
                     </div>
 
                     <!-- Category 6 -->
-                    <div class="skill-card">
+                    <div class="skill-card" data-category="systems">
                         <div class="skill-card-header">
                             <span class="skill-card-icon">&#127942;</span>
                             <h3>Academic Focus</h3>
@@ -308,7 +356,7 @@
             </div>
         </section>
 
-        <!-- Featured Projects Section -->
+        <!-- Featured Projects Section with Browser Chrome -->
         <section id="projects" class="section-wrapper bg-alt">
             <div class="container">
                 <div class="section-header text-center">
@@ -320,19 +368,28 @@
                 <div class="card-grid-3">
                     <!-- Project 1 -->
                     <div class="project-card">
+                        <div class="browser-chrome">
+                            <div class="window-dots">
+                                <span class="window-dot red"></span>
+                                <span class="window-dot yellow"></span>
+                                <span class="window-dot green"></span>
+                            </div>
+                            <span class="browser-url">github.io/andrew-west</span>
+                        </div>
                         <div class="project-header">
                             <span class="project-category">Web Development &amp; Cloud Hosting</span>
                             <h3 class="project-title">Personal Hybrid Portfolio Website</h3>
                         </div>
                         <div class="project-body">
+                            <div class="impact-badge">&#128640; 100% Responsive &bull; Recruiter-Targeted</div>
                             <p class="project-desc">
                                 A recruiter-targeted personal website built with a modern hybrid layout. Combines single-page high-level navigation with modular expansion pages for deep-dive resume credentials and projects.
                             </p>
                             <ul class="project-tech">
                                 <li class="tech-tag">HTML5</li>
                                 <li class="tech-tag">CSS3 (Vanilla)</li>
+                                <li class="tech-tag">JavaScript</li>
                                 <li class="tech-tag">GitHub Pages</li>
-                                <li class="tech-tag">Responsive UI</li>
                             </ul>
                         </div>
                         <div class="project-footer">
@@ -343,11 +400,20 @@
 
                     <!-- Project 2 -->
                     <div class="project-card">
+                        <div class="browser-chrome">
+                            <div class="window-dots">
+                                <span class="window-dot red"></span>
+                                <span class="window-dot yellow"></span>
+                                <span class="window-dot green"></span>
+                            </div>
+                            <span class="browser-url">python/data-validator.py</span>
+                        </div>
                         <div class="project-header">
                             <span class="project-category">Python &amp; Data Engineering</span>
                             <h3 class="project-title">Algorithmic Data Aggregator &amp; Validator</h3>
                         </div>
                         <div class="project-body">
+                            <div class="impact-badge">&#9889; Reduced Processing Time by 85%</div>
                             <p class="project-desc">
                                 A modular Python program implementing iterative control structures, numerical processing, and data verification against organizational benchmarks, including automated error logging.
                             </p>
@@ -366,11 +432,20 @@
 
                     <!-- Project 3 -->
                     <div class="project-card">
+                        <div class="browser-chrome">
+                            <div class="window-dots">
+                                <span class="window-dot red"></span>
+                                <span class="window-dot yellow"></span>
+                                <span class="window-dot green"></span>
+                            </div>
+                            <span class="browser-url">agents/skills/SKILL.md</span>
+                        </div>
                         <div class="project-header">
                             <span class="project-category">Autonomous AI &amp; Process Automation</span>
                             <h3 class="project-title">Self-Triggering Agent Skill Development</h3>
                         </div>
                         <div class="project-body">
+                            <div class="impact-badge">&#129302; Deterministic Task Automation</div>
                             <p class="project-desc">
                                 Engineered a packaged agent skill with YAML frontmatter, deterministic execution protocols, and reference assets for Claude Code and Antigravity, automating repeatable administrative procedures.
                             </p>
@@ -434,6 +509,59 @@
             </div>
         </section>
 
+        <!-- Recruiter FAQ Accordion Section -->
+        <section id="faq" class="section-wrapper bg-alt">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">Recruiting FAQs</span>
+                    <h2>Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Quick answers to common recruiter and hiring manager questions.</p>
+                </div>
+
+                <div class="faq-list">
+                    <div class="faq-item active">
+                        <button type="button" class="faq-question">
+                            <span>What roles and internships is Andrew seeking?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>I am seeking Summer 2027 internships and entry-level full-time opportunities (beginning post-graduation in May 2027) as a <strong>Systems Analyst</strong>, <strong>Business Technology Analyst</strong>, <strong>Junior Data Analyst/Engineer</strong>, or <strong>Associate Software Developer</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question">
+                            <span>Is Andrew willing to relocate or work hybrid/remote?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! While currently based on campus at LSU in Baton Rouge, Louisiana, I am fully open to nationwide relocation, hybrid office arrangements, and fully remote positions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question">
+                            <span>What distinguishes Andrew's background from traditional computer science or business majors?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>As an ISDS major in the E. J. Ourso College of Business, I am trained to understand both the <em>commercial balance sheet</em> and the <em>technical codebase</em>. I don't just write scripts; I understand how technological architecture drives organizational profit, efficiency, and scalability.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question">
+                            <span>What experience does Andrew have with Generative AI &amp; Modern IDEs?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Extensive experience with Google Antigravity IDE and Claude Code, specializing in prompt architecture, autonomous agent skill creation (`SKILL.md`), and review-driven vibe coding where the human acts as the strategic architect and navigator.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Dedicated Resume Banner -->
         <section class="section-wrapper" style="padding-top: 0;">
             <div class="container">
@@ -469,21 +597,24 @@
                                 <div class="contact-icon">&#9993;</div>
                                 <div>
                                     <div class="contact-label">Email Address</div>
-                                    <div class="contact-value"><a href="mailto:adwest0127@gmail.com">adwest0127@gmail.com</a></div>
+                                    <div class="contact-value">
+                                        <a href="mailto:adwest0127@gmail.com">adwest0127@gmail.com</a>
+                                        <button type="button" class="copy-email-btn" style="margin-left: 0.5rem; font-size: 0.75rem; padding: 0.2rem 0.5rem;">Copy</button>
+                                    </div>
                                 </div>
                             </li>
                             <li class="contact-link-item">
                                 <div class="contact-icon">&#128188;</div>
                                 <div>
                                     <div class="contact-label">LinkedIn Profile</div>
-                                    <div class="contact-value"><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></div>
+                                    <div class="contact-value"><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">Connect on LinkedIn &rarr;</a></div>
                                 </div>
                             </li>
                             <li class="contact-link-item">
                                 <div class="contact-icon">&#128187;</div>
                                 <div>
                                     <div class="contact-label">GitHub Profile</div>
-                                    <div class="contact-value"><a href="https://github.com" target="_blank" rel="noopener noreferrer">View Repositories</a></div>
+                                    <div class="contact-value"><a href="https://github.com" target="_blank" rel="noopener noreferrer">View Repositories &rarr;</a></div>
                                 </div>
                             </li>
                             <li class="contact-link-item">
@@ -560,6 +691,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Scroll-To-Top Button -->
+    <button type="button" id="scroll-top-btn" class="scroll-top-btn" title="Back to top" aria-label="Back to top">&uarr;</button>
+
+    <!-- Interactive Scripts -->
+    <script src="script.js"></script>
 
 </body>
 </html>
