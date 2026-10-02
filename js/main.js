@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardTilt();
   initRecruiterMode();
   initQuickShare();
+  initConstellationNetwork();
+  initCaseStudyStepper();
+  initCourseworkDrawers();
 });
 
 /* ==========================================================================
@@ -630,6 +633,192 @@ function initQuickShare() {
         }
       } catch (err) {
         showToast('Link Ready', shareUrl);
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   INTERACTIVE CONSTELLATION / DATA NETWORK CANVAS
+   ========================================================================== */
+function initConstellationNetwork() {
+  const canvas = document.getElementById('network-canvas');
+  if (!canvas) return;
+
+  const hero = document.getElementById('hero') || canvas.parentElement;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  let width = (canvas.width = hero.offsetWidth);
+  let height = (canvas.height = hero.offsetHeight);
+
+  const particles = [];
+  const particleCount = Math.min(Math.floor((width * height) / 13000), 55);
+
+  const mouse = { x: null, y: null, radius: 140 };
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = hero.offsetWidth;
+    height = canvas.height = hero.offsetHeight;
+  });
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.65;
+      this.vy = (Math.random() - 0.5) * 0.65;
+      this.radius = Math.random() * 1.5 + 1.2;
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+
+      // Mouse attraction
+      if (mouse.x !== null && mouse.y !== null) {
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < mouse.radius) {
+          const force = (mouse.radius - dist) / mouse.radius;
+          this.x += (dx / dist) * force * 1.1;
+          this.y += (dy / dist) * force * 1.1;
+        }
+      }
+    }
+
+    draw(isDark) {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = isDark ? 'rgba(129, 140, 248, 0.75)' : 'rgba(99, 102, 241, 0.65)';
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+
+    // Inter-particle connection lines
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 110) {
+          const opacity = (1 - dist / 110) * (isDark ? 0.22 : 0.16);
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = isDark
+            ? `rgba(129, 140, 248, ${opacity})`
+            : `rgba(99, 102, 241, ${opacity})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+
+      // Cursor connection line
+      if (mouse.x !== null && mouse.y !== null) {
+        const mdx = mouse.x - particles[i].x;
+        const mdy = mouse.y - particles[i].y;
+        const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+        if (mdist < mouse.radius) {
+          const mOpacity = (1 - mdist / mouse.radius) * 0.35;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = isDark
+            ? `rgba(56, 189, 248, ${mOpacity})`
+            : `rgba(79, 70, 229, ${mOpacity})`;
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+        }
+      }
+
+      particles[i].update();
+      particles[i].draw(isDark);
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+/* ==========================================================================
+   CASE STUDY STEPPER CONTROLLER (projects.html)
+   ========================================================================== */
+function initCaseStudyStepper() {
+  const stepBtns = document.querySelectorAll('.case-step-btn');
+  const panels = document.querySelectorAll('.case-step-panel');
+  if (!stepBtns.length || !panels.length) return;
+
+  stepBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const step = btn.getAttribute('data-step');
+
+      stepBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      panels.forEach(p => {
+        p.style.display = 'none';
+        p.classList.remove('active');
+      });
+
+      const activePanel = document.getElementById(`case-step-${step}`);
+      if (activePanel) {
+        activePanel.style.display = 'block';
+        activePanel.classList.add('active');
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   INTERACTIVE COURSEWORK DRAWERS CONTROLLER (index.html)
+   ========================================================================== */
+function initCourseworkDrawers() {
+  const cards = document.querySelectorAll('.coursework-card');
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    const trigger = card.querySelector('.coursework-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = card.classList.contains('open');
+
+      // Close other drawers for clean single-view accordion
+      cards.forEach(c => {
+        c.classList.remove('open');
+        const t = c.querySelector('.coursework-trigger');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        card.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
       }
     });
   });

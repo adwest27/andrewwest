@@ -97,6 +97,9 @@
          01. HERO SECTION
          =================================================================== -->
     <section class="hero-section" id="hero">
+      <!-- Interactive Constellation / Data Network Canvas Background -->
+      <canvas id="network-canvas" class="hero-network-canvas" aria-hidden="true"></canvas>
+
       <div class="container">
         
         <!-- Intro & Call To Actions (Centered) -->
@@ -447,6 +450,49 @@
                 <li>Relevant Coursework: ISDS 3100 - Information Systems Foundations, ISDS 3107 - Design of IS Systems.</li>
                 <li>Campus Organizations: Member of AITP (Association of Information Technology Professionals).</li>
               </ul>
+
+              <!-- Interactive Coursework Deep-Dive Drawers -->
+              <div class="coursework-drawers">
+                <!-- Coursework Item 1: ISDS 3100 -->
+                <div class="coursework-card">
+                  <button type="button" class="coursework-trigger" aria-expanded="false">
+                    <div style="display: flex; align-items: center; gap: 0.65rem;">
+                      <span class="course-code-badge">ISDS 3100</span>
+                      <strong class="course-name">Information Systems Foundations</strong>
+                    </div>
+                    <i class="fas fa-chevron-down course-chevron"></i>
+                  </button>
+                  <div class="coursework-drawer-body">
+                    <p class="course-desc">Foundational study of enterprise information architecture, relational database normalization, and managerial decision support systems.</p>
+                    <div class="course-topics-tags">
+                      <span class="course-tag"><i class="fas fa-database"></i> Relational Database Normalization (1NF–3NF)</span>
+                      <span class="course-tag"><i class="fas fa-table"></i> SQL Queries & Relational Algebra</span>
+                      <span class="course-tag"><i class="fas fa-sitemap"></i> Entity-Relationship Diagrams (ERDs)</span>
+                      <span class="course-tag"><i class="fas fa-chart-pie"></i> Decision Support Systems (DSS)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Coursework Item 2: ISDS 3107 -->
+                <div class="coursework-card">
+                  <button type="button" class="coursework-trigger" aria-expanded="false">
+                    <div style="display: flex; align-items: center; gap: 0.65rem;">
+                      <span class="course-code-badge">ISDS 3107</span>
+                      <strong class="course-name">Design of Information Systems</strong>
+                    </div>
+                    <i class="fas fa-chevron-down course-chevron"></i>
+                  </button>
+                  <div class="coursework-drawer-body">
+                    <p class="course-desc">End-to-end Systems Development Life Cycle (SDLC) methodologies, formal requirements analysis, data modeling, and process engineering.</p>
+                    <div class="course-topics-tags">
+                      <span class="course-tag"><i class="fas fa-diagram-project"></i> Data Flow Diagrams (DFD Level 0/1)</span>
+                      <span class="course-tag"><i class="fas fa-arrows-split-up-and-left"></i> Systems Development Life Cycle (SDLC)</span>
+                      <span class="course-tag"><i class="fas fa-clipboard-check"></i> System Requirement Specs (SRS)</span>
+                      <span class="course-tag"><i class="fas fa-users-gear"></i> Agile Systems Design & Use Cases</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -744,7 +790,7 @@
     <div class="container recruiter-banner-inner">
       <div class="recruiter-banner-left">
         <span class="recruiter-pill-tag"><i class="fas fa-bolt"></i> 1-MIN RECRUITER SCAN</span>
-        <span class="recruiter-banner-summary"><strong>Andrew West</strong> · ISDS Junior at LSU (3.5 GPA) · Python, Cloudflare, Product Flow & Systems</span>
+        <span class="recruiter-banner-summary"><strong>Andrew West</strong> · ISDS Senior at LSU (2.7 GPA) · Skills: Work in Progress</span>
       </div>
       <div class="recruiter-banner-actions">
         <button type="button" class="btn btn-sm btn-primary open-resume-modal-btn"><i class="fas fa-file-lines"></i> Open Resume</button>

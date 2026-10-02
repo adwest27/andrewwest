@@ -146,6 +146,145 @@
 
         </div>
 
+        <!-- ===================================================================
+             ENGINEERING CASE STUDY & DEEP-DIVE
+             =================================================================== -->
+        <div class="case-study-section" style="max-width: 900px; margin: 3.5rem auto 0 auto;">
+          <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+            <span class="section-tag"><i class="fas fa-brain"></i> Architectural Deep-Dive</span>
+            <h2 class="section-title" style="font-size: 1.8rem;">Engineering <span class="gradient-text">Case Study</span></h2>
+            <p class="section-subtitle" style="max-width: 620px; margin: 0.5rem auto 0 auto;">
+              An end-to-end breakdown of the AI-assisted vibe coding procedure, rapid prototyping cycle, and production infrastructure deployment.
+            </p>
+          </div>
+
+          <!-- Interactive Case Study Stepper / Tabs -->
+          <div class="glass-card case-study-card" style="padding: 2.25rem; border-radius: var(--radius-lg);">
+            <!-- Stepper Nav Buttons -->
+            <div class="case-study-nav">
+              <button type="button" class="case-step-btn active" data-step="1">
+                <span class="step-num">01</span>
+                <span class="step-title">Prompt Architecture</span>
+              </button>
+              <button type="button" class="case-step-btn" data-step="2">
+                <span class="step-num">02</span>
+                <span class="step-title">Agentic Iteration</span>
+              </button>
+              <button type="button" class="case-step-btn" data-step="3">
+                <span class="step-num">03</span>
+                <span class="step-title">Human-in-the-Loop QA</span>
+              </button>
+              <button type="button" class="case-step-btn" data-step="4">
+                <span class="step-num">04</span>
+                <span class="step-title">Cloudflare & DNS</span>
+              </button>
+            </div>
+
+            <!-- Step Content Panels -->
+            <div class="case-step-content-wrap">
+              <!-- Panel 1 -->
+              <div class="case-step-panel active" id="case-step-1">
+                <div class="panel-header">
+                  <div class="panel-badge"><i class="fas fa-terminal"></i> Phase 1: Blueprint & Specification</div>
+                  <h3 class="panel-title">Conversational Prompt Engineering & System Blueprint</h3>
+                </div>
+                <p class="panel-desc">
+                  Rather than writing manual boilerplate, the engineering workflow began with structured natural language specifications. Detailed architectural guidelines were formulated to define component hierarchies, CSS variable token trees, color contrast standards, and responsive viewport breakpoints.
+                </p>
+                <div class="panel-metrics-grid">
+                  <div class="panel-metric-item">
+                    <span class="metric-label">Procedure</span>
+                    <span class="metric-val">Iterative Context Grounding</span>
+                  </div>
+                  <div class="panel-metric-item">
+                    <span class="metric-label">Design System</span>
+                    <span class="metric-val">CSS Token Architecture</span>
+                  </div>
+                  <div class="panel-metric-item">
+                    <span class="metric-label">Target Stack</span>
+                    <span class="metric-val">Pure Vanilla CSS / JS (Zero bloat)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 2 -->
+              <div class="case-step-panel" id="case-step-2" style="display: none;">
+                <div class="panel-header">
+                  <div class="panel-badge"><i class="fas fa-wand-magic-sparkles"></i> Phase 2: Rapid Prototyping</div>
+                  <h3 class="panel-title">Agentic Synthesis & Real-Time Code Generation</h3>
+                </div>
+                <p class="panel-desc">
+                  Leveraged an autonomous coding agent to draft feature blocks, calculate mathematical layouts, and dynamically inject micro-interactions. Real-time feedback loops allowed steering the generation of complex features including 3D card tilt physics, dark/light theme switching, and live API queries.
+                </p>
+                <div class="panel-metrics-grid">
+                  <div class="panel-metric-item">
+                    <span class="metric-label">Development Speed</span>
+                    <span class="metric-val">5x Faster Prototyping</span>
+                  </div>
+                  <div class="panel-metric-item">
+                    <span class="metric-label">Execution Loop</span>
+                    <span class="metric-val">Live In-Browser Hot Reload</span>
+                  </div>
+                  <div class="panel-metric-item">
+                    <span class="metric-label">Modularity</span>
+                    <span class="metric-val">Isolated Component Functions</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 3 -->
+              <div class="case-step-panel" id="case-step-3" style="display: none;">
+                <div class="panel-header">
+                  <div class="panel-badge"><i class="fas fa-check-double"></i> Phase 3: Verification</div>
+                  <h3 class="panel-title">Human-in-the-Loop Quality Assurance & Git Workflows</h3>
+                </div>
+                <p class="panel-desc">
+                  Every piece of generated code underwent manual review and local server testing on port 5500. Inspected DOM accessibility, resolved CSS selector precedence, ensured mobile touch-screen safety, and committed structured version control snapshots directly to GitHub.
+                </p>
+                <div class="panel-metrics-grid">
+                  <div class="panel-metric-item">
+                    <span class="metric-label">Local Validation</span>
+                    <span class="metric-val">HTTP 200 Health Checks</span>
+                  </div>
+                  <div class="panel-metric-item">
+                    <span class="metric-label">Version Control</span>
+                    <span class="metric-val">Git Branching & GitHub Sync</span>
+                  </div>
+                  <div class="panel-metric-item">
+                    <span class="metric-label">Accessibility</span>
+                    <span class="metric-val">ARIA Modals & Keyboard Focus</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Panel 4 -->
+              <div class="case-step-panel" id="case-step-4" style="display: none;">
+                <div class="panel-header">
+                  <div class="panel-badge"><i class="fas fa-cloud"></i> Phase 4: Production</div>
+                  <h3 class="panel-title">GoDaddy Domain Routing & Cloudflare Edge CDN</h3>
+                </div>
+                <p class="panel-desc">
+                  Purchased and managed the apex domain through GoDaddy, re-delegating authoritative nameservers to Cloudflare. Configured Cloudflare’s proxy to provide automatic Full SSL/TLS encryption, HTTP/3 delivery, global CDN edge caching, and automated DDoS mitigation.
+                </p>
+                <div class="panel-metrics-grid">
+                  <div class="panel-metric-item">
+                    <span class="metric-label">DNS Registrar</span>
+                    <span class="metric-val">GoDaddy Apex Delegation</span>
+                  </div>
+                  <div class="panel-metric-item">
+                    <span class="metric-label">Security</span>
+                    <span class="metric-val">Cloudflare Full SSL/TLS</span>
+                  </div>
+                  <div class="panel-metric-item">
+                    <span class="metric-label">Edge Network</span>
+                    <span class="metric-val">Global CDN & DDoS Protection</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Live GitHub Activity Showcase -->
         <div style="max-width: 680px; margin: 3rem auto 0 auto;">
           <div class="glass-card github-activity-card">
@@ -388,7 +527,7 @@
     <div class="container recruiter-banner-inner">
       <div class="recruiter-banner-left">
         <span class="recruiter-pill-tag"><i class="fas fa-bolt"></i> 1-MIN RECRUITER SCAN</span>
-        <span class="recruiter-banner-summary"><strong>Andrew West</strong> · ISDS Junior at LSU (3.5 GPA) · Python, Cloudflare, Product Flow & Systems</span>
+        <span class="recruiter-banner-summary"><strong>Andrew West</strong> · ISDS Senior at LSU (2.7 GPA) · Skills: Work in Progress</span>
       </div>
       <div class="recruiter-banner-actions">
         <button type="button" class="btn btn-sm btn-primary open-resume-modal-btn"><i class="fas fa-file-lines"></i> Open Resume</button>
