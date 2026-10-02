@@ -54,12 +54,6 @@
 
       <!-- Action Buttons & Theme Switcher -->
       <div class="nav-actions">
-        <!-- Spotlight Command Palette Trigger -->
-        <button id="cmd-palette-btn" class="nav-cmd-btn" aria-label="Open Command Palette" title="Command Palette (Ctrl + K)">
-          <i class="fas fa-terminal"></i>
-          <span class="cmd-shortcut-hint">Ctrl K</span>
-        </button>
-
         <!-- Recruiter 1-Min Mode Toggle -->
         <button id="recruiter-mode-toggle" class="recruiter-toggle-btn" aria-label="Toggle Recruiter 1-Minute Mode" title="Recruiter 1-Minute Quick Scan">
           <i class="fas fa-bolt"></i>
@@ -371,97 +365,6 @@
         </div>
       </div>
 
-    </div>
-  </div>
-
-  <!-- =====================================================================
-       SPOTLIGHT COMMAND PALETTE (Ctrl + K / Cmd + K)
-       ===================================================================== -->
-  <div id="cmd-palette" class="cmd-palette-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="cmd-palette-modal glass-card">
-      <div class="cmd-palette-input-wrap">
-        <i class="fas fa-search cmd-search-icon"></i>
-        <input type="text" id="cmd-palette-input" class="cmd-palette-input" placeholder="Type a command or jump to section..." autocomplete="off" spellcheck="false">
-        <kbd class="cmd-kbd-esc" id="cmd-close-kbd">ESC</kbd>
-      </div>
-
-      <div class="cmd-palette-results" id="cmd-palette-results">
-        <!-- Navigation Section -->
-        <div class="cmd-group">
-          <div class="cmd-group-title">Navigation</div>
-          <button class="cmd-item" data-action="navigate" data-target="index.html#hero">
-            <i class="fas fa-house"></i>
-            <span>Home</span>
-            <span class="cmd-item-shortcut">index.html</span>
-          </button>
-          <button class="cmd-item" data-action="navigate" data-target="index.html#about">
-            <i class="fas fa-user"></i>
-            <span>About Andrew</span>
-            <span class="cmd-item-shortcut">#about</span>
-          </button>
-          <button class="cmd-item" data-action="navigate" data-target="index.html#skills">
-            <i class="fas fa-laptop-code"></i>
-            <span>Skill Development</span>
-            <span class="cmd-item-shortcut">#skills</span>
-          </button>
-          <button class="cmd-item" data-action="navigate" data-target="projects.html">
-            <i class="fas fa-folder-open"></i>
-            <span>Projects Showcase</span>
-            <span class="cmd-item-shortcut">projects.html</span>
-          </button>
-          <button class="cmd-item" data-action="navigate" data-target="index.html#experience">
-            <i class="fas fa-briefcase"></i>
-            <span>Experience & Education</span>
-            <span class="cmd-item-shortcut">#experience</span>
-          </button>
-          <button class="cmd-item" data-action="navigate" data-target="index.html#contact">
-            <i class="fas fa-envelope"></i>
-            <span>Contact</span>
-            <span class="cmd-item-shortcut">#contact</span>
-          </button>
-        </div>
-
-        <!-- Quick Actions Section -->
-        <div class="cmd-group">
-          <div class="cmd-group-title">Quick Actions</div>
-          <button class="cmd-item" data-action="resume">
-            <i class="fas fa-file-lines"></i>
-            <span>View / Print Resume</span>
-            <span class="cmd-badge">Modal</span>
-          </button>
-          <button class="cmd-item" data-action="recruiter">
-            <i class="fas fa-bolt"></i>
-            <span>Toggle Recruiter 1-Minute Mode</span>
-            <span class="cmd-badge">Toggle</span>
-          </button>
-          <button class="cmd-item" data-action="share">
-            <i class="fas fa-share-nodes"></i>
-            <span>Share Portfolio (Copy Link)</span>
-            <span class="cmd-badge">Copy</span>
-          </button>
-          <button class="cmd-item" data-action="theme">
-            <i class="fas fa-circle-half-stroke"></i>
-            <span>Toggle Dark / Light Theme</span>
-            <span class="cmd-badge">Theme</span>
-          </button>
-          <button class="cmd-item" data-action="email">
-            <i class="fas fa-copy"></i>
-            <span>Copy Email Address (adwest27@gmail.com)</span>
-            <span class="cmd-badge">Copy</span>
-          </button>
-          <button class="cmd-item" data-action="github">
-            <i class="fab fa-github"></i>
-            <span>Open GitHub Profile (@adwest27)</span>
-            <span class="cmd-badge">External</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="cmd-palette-footer">
-        <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
-        <span><kbd>↵</kbd> to select</span>
-        <span><kbd>ESC</kbd> to close</span>
-      </div>
     </div>
   </div>
 
