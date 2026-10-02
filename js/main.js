@@ -13,6 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initCopyEmail();
   initScrollAnimations();
   initResumeModal();
+  initExploringRotator();
+  initGitHubActivity();
+  initCommandPalette();
+  initCardTilt();
+  initRecruiterMode();
+  initQuickShare();
 });
 
 /* ==========================================================================
@@ -386,4 +392,393 @@ function initResumeModal() {
       window.print();
     });
   }
+}
+
+/* ==========================================================================
+   DYNAMIC "CURRENTLY EXPLORING" ROTATOR
+   ========================================================================== */
+function initExploringRotator() {
+  const exploringText = document.getElementById('exploring-text');
+  if (!exploringText) return;
+
+  const topics = [
+    'Cloud Infrastructure & DNS Systems',
+    'Python Automation & Data Analytics',
+    'ISDS Decision Systems & Modeling',
+    'Cyber Risk Analysis & Threat Mitigation'
+  ];
+
+  let currentTopicIndex = 0;
+
+  setInterval(() => {
+    exploringText.classList.add('fade-out');
+    setTimeout(() => {
+      currentTopicIndex = (currentTopicIndex + 1) % topics.length;
+      exploringText.textContent = topics[currentTopicIndex];
+      exploringText.classList.remove('fade-out');
+    }, 350);
+  }, 4000);
+}
+
+/* ==========================================================================
+   LIVE GITHUB ACTIVITY FETCHER (adwest27)
+   ========================================================================== */
+async function initGitHubActivity() {
+  const cards = document.querySelectorAll('.github-activity-card');
+  if (!cards.length) return;
+
+  const username = 'adwest27';
+
+  try {
+    const userPromise = fetch(`https://api.github.com/users/${username}`, {
+      headers: { 'Accept': 'application/vnd.github.v3+json' }
+    });
+    const reposPromise = fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=3`, {
+      headers: { 'Accept': 'application/vnd.github.v3+json' }
+    });
+
+    const [userRes, reposRes] = await Promise.all([userPromise, reposPromise]);
+
+    if (userRes.ok) {
+      const userData = await userRes.json();
+      document.querySelectorAll('.gh-avatar').forEach(img => {
+        if (userData.avatar_url) img.src = userData.avatar_url;
+      });
+      document.querySelectorAll('.gh-public-repos').forEach(el => {
+        if (userData.public_repos !== undefined) el.textContent = userData.public_repos;
+      });
+    }
+
+    if (reposRes.ok) {
+      const repos = await reposRes.json();
+      if (Array.isArray(repos) && repos.length > 0) {
+        const activeRepo = repos[0];
+        document.querySelectorAll('.gh-repo-name').forEach(el => {
+          el.textContent = activeRepo.name;
+          el.href = activeRepo.html_url;
+        });
+        document.querySelectorAll('.gh-repo-desc').forEach(el => {
+          el.textContent = activeRepo.description || 'Personal Portfolio and Web Application';
+        });
+        document.querySelectorAll('.gh-repo-lang').forEach(el => {
+          el.textContent = activeRepo.language || 'CSS / Web';
+        });
+      }
+    }
+  } catch (err) {
+    // If rate-limited or offline, the fallback markup already in HTML remains visually active
+    console.log('GitHub API offline or rate-limited; fallback active.', err);
+  }
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATION HELPER
+   ========================================================================== */
+function showToast(title, desc) {
+  const toast = document.getElementById('share-toast');
+  const titleEl = document.getElementById('toast-title');
+  const descEl = document.getElementById('toast-desc');
+  if (!toast) return;
+
+  if (titleEl && title) titleEl.textContent = title;
+  if (descEl && desc) descEl.textContent = desc;
+
+  toast.classList.add('show');
+  
+  clearTimeout(toast._timeout);
+  toast._timeout = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3500);
+}
+
+/* ==========================================================================
+   SPOTLIGHT COMMAND PALETTE CONTROLLER (Ctrl + K)
+   ========================================================================== */
+function initCommandPalette() {
+  const palette = document.getElementById('cmd-palette');
+  const input = document.getElementById('cmd-palette-input');
+  const items = document.querySelectorAll('.cmd-item');
+  const triggers = document.querySelectorAll('.nav-cmd-btn, #cmd-palette-btn');
+  const closeKbd = document.getElementById('cmd-close-kbd');
+
+  if (!palette || !input) return;
+
+  let activeIndex = -1;
+
+  function openPalette() {
+    palette.classList.add('open');
+    palette.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    input.value = '';
+    filterItems('');
+    input.focus();
+    setActiveIndex(0);
+  }
+
+  function closePalette() {
+    palette.classList.remove('open');
+    palette.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  triggers.forEach(btn => btn.addEventListener('click', openPalette));
+  if (closeKbd) closeKbd.addEventListener('click', closePalette);
+
+  palette.addEventListener('click', (e) => {
+    if (e.target === palette) closePalette();
+  });
+
+  // Global hotkeys: Ctrl+K or Cmd+K
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      if (palette.classList.contains('open')) {
+        closePalette();
+      } else {
+        openPalette();
+      }
+    } else if (e.key === 'Escape' && palette.classList.contains('open')) {
+      closePalette();
+    }
+  });
+
+  // Filter items as user types
+  input.addEventListener('input', (e) => {
+    filterItems(e.target.value.toLowerCase().trim());
+  });
+
+  function filterItems(query) {
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      const match = !query || text.includes(query);
+      item.style.display = match ? 'flex' : 'none';
+    });
+
+    // Hide empty groups
+    document.querySelectorAll('.cmd-group').forEach(group => {
+      const hasVisible = Array.from(group.querySelectorAll('.cmd-item')).some(i => i.style.display !== 'none');
+      group.style.display = hasVisible ? 'block' : 'none';
+    });
+
+    setActiveIndex(0);
+  }
+
+  // Keyboard navigation inside palette (Arrow Up, Arrow Down, Enter)
+  input.addEventListener('keydown', (e) => {
+    const visibleItems = Array.from(items).filter(i => i.style.display !== 'none');
+    if (!visibleItems.length) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveIndex((activeIndex + 1) % visibleItems.length);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveIndex((activeIndex - 1 + visibleItems.length) % visibleItems.length);
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (activeIndex >= 0 && activeIndex < visibleItems.length) {
+        executeItem(visibleItems[activeIndex]);
+      }
+    }
+  });
+
+  function setActiveIndex(index) {
+    const visibleItems = Array.from(items).filter(i => i.style.display !== 'none');
+    visibleItems.forEach(i => i.classList.remove('selected'));
+    if (visibleItems.length > 0) {
+      activeIndex = Math.max(0, Math.min(index, visibleItems.length - 1));
+      visibleItems[activeIndex].classList.add('selected');
+      visibleItems[activeIndex].scrollIntoView({ block: 'nearest' });
+    } else {
+      activeIndex = -1;
+    }
+  }
+
+  items.forEach(item => {
+    item.addEventListener('click', () => executeItem(item));
+    item.addEventListener('mouseenter', () => {
+      const visibleItems = Array.from(items).filter(i => i.style.display !== 'none');
+      const idx = visibleItems.indexOf(item);
+      if (idx !== -1) setActiveIndex(idx);
+    });
+  });
+
+  function executeItem(item) {
+    const action = item.dataset.action;
+    const target = item.dataset.target;
+    closePalette();
+
+    setTimeout(() => {
+      if (action === 'navigate' && target) {
+        if (target.endsWith('.html') || target.includes('.html')) {
+          window.location.href = target;
+        } else {
+          const el = document.querySelector(target);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.location.href = target;
+          }
+        }
+      } else if (action === 'resume') {
+        const resumeBtn = document.querySelector('.open-resume-modal-btn');
+        if (resumeBtn) resumeBtn.click();
+      } else if (action === 'theme') {
+        const themeBtn = document.getElementById('theme-toggle-btn');
+        if (themeBtn) themeBtn.click();
+      } else if (action === 'recruiter') {
+        const recBtn = document.getElementById('recruiter-mode-toggle');
+        if (recBtn) recBtn.click();
+      } else if (action === 'share') {
+        const shareBtn = document.getElementById('quick-share-btn');
+        if (shareBtn) shareBtn.click();
+      } else if (action === 'email') {
+        const copyEmailBtn = document.getElementById('copy-email-btn');
+        if (copyEmailBtn) copyEmailBtn.click();
+        else {
+          navigator.clipboard.writeText('adwest27@gmail.com');
+          showToast('Email Copied!', 'adwest27@gmail.com copied to clipboard.');
+        }
+      } else if (action === 'github') {
+        window.open('https://github.com/adwest27', '_blank', 'noopener,noreferrer');
+      }
+    }, 150);
+  }
+}
+
+/* ==========================================================================
+   3D INTERACTIVE CARD TILT WITH SPECULAR GLARE
+   ========================================================================== */
+function initCardTilt() {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  const tiltCards = document.querySelectorAll(
+    '.project-card, .skill-card, .github-activity-card, .projects-portal-box, .stat-item, .highlight-item, .contact-card'
+  );
+
+  tiltCards.forEach(card => {
+    let glare = card.querySelector('.card-glare');
+    if (!glare) {
+      glare = document.createElement('div');
+      glare.className = 'card-glare';
+      card.appendChild(glare);
+    }
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -7;
+      const rotateY = ((x - centerX) / centerX) * 7;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+      
+      glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%)`;
+      glare.style.opacity = '1';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+      if (glare) glare.style.opacity = '0';
+      setTimeout(() => {
+        card.style.transition = '';
+      }, 400);
+    });
+  });
+}
+
+/* ==========================================================================
+   RECRUITER 1-MINUTE MODE
+   ========================================================================== */
+function initRecruiterMode() {
+  const toggleBtns = document.querySelectorAll('.recruiter-toggle-btn');
+  const banner = document.getElementById('recruiter-banner');
+  const bannerClose = document.getElementById('recruiter-banner-close');
+
+  const savedMode = localStorage.getItem('portfolio-recruiter-mode') === 'true';
+  if (savedMode) {
+    enableRecruiterMode(false);
+  }
+
+  function enableRecruiterMode(showToastMsg = true) {
+    document.documentElement.classList.add('recruiter-mode-active');
+    toggleBtns.forEach(btn => {
+      btn.classList.add('active');
+      const textSpan = btn.querySelector('.recruiter-toggle-text');
+      if (textSpan) textSpan.textContent = 'Exit 1-Min';
+    });
+    if (banner) {
+      banner.classList.add('show');
+      banner.setAttribute('aria-hidden', 'false');
+    }
+    localStorage.setItem('portfolio-recruiter-mode', 'true');
+    if (showToastMsg) {
+      showToast('⚡ Recruiter 1-Min Scan Enabled', 'Core metrics, skills, and highlights are now prioritized.');
+    }
+  }
+
+  function disableRecruiterMode() {
+    document.documentElement.classList.remove('recruiter-mode-active');
+    toggleBtns.forEach(btn => {
+      btn.classList.remove('active');
+      const textSpan = btn.querySelector('.recruiter-toggle-text');
+      if (textSpan) textSpan.textContent = 'Recruiter Mode';
+    });
+    if (banner) {
+      banner.classList.remove('show');
+      banner.setAttribute('aria-hidden', 'true');
+    }
+    localStorage.setItem('portfolio-recruiter-mode', 'false');
+    showToast('Standard View Restored', 'Full portfolio details and expanded narratives visible.');
+  }
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isActive = document.documentElement.classList.contains('recruiter-mode-active');
+      if (isActive) {
+        disableRecruiterMode();
+      } else {
+        enableRecruiterMode(true);
+      }
+    });
+  });
+
+  if (bannerClose) {
+    bannerClose.addEventListener('click', disableRecruiterMode);
+  }
+}
+
+/* ==========================================================================
+   QUICK SHARE TOAST CONTROLLER
+   ========================================================================== */
+function initQuickShare() {
+  const shareBtns = document.querySelectorAll('.nav-share-btn, .quick-share-btn');
+  
+  shareBtns.forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const shareUrl = window.location.href.split('#')[0];
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(shareUrl);
+          showToast('🎉 Portfolio Link Copied!', 'Link copied to clipboard, ready to share with hiring managers.');
+        } else {
+          const tempInput = document.createElement('input');
+          tempInput.value = shareUrl;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+          showToast('🎉 Portfolio Link Copied!', 'Link copied to clipboard, ready to share with hiring managers.');
+        }
+      } catch (err) {
+        showToast('Link Ready', shareUrl);
+      }
+    });
+  });
 }

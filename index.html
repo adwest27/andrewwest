@@ -49,7 +49,7 @@
         <ul class="nav-menu" id="nav-menu">
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -57,6 +57,23 @@
 
       <!-- Action Buttons & Theme Switcher -->
       <div class="nav-actions">
+        <!-- Spotlight Command Palette Trigger -->
+        <button id="cmd-palette-btn" class="nav-cmd-btn" aria-label="Open Command Palette" title="Command Palette (Ctrl + K)">
+          <i class="fas fa-terminal"></i>
+          <span class="cmd-shortcut-hint">Ctrl K</span>
+        </button>
+
+        <!-- Recruiter 1-Min Mode Toggle -->
+        <button id="recruiter-mode-toggle" class="recruiter-toggle-btn" aria-label="Toggle Recruiter 1-Minute Mode" title="Recruiter 1-Minute Quick Scan">
+          <i class="fas fa-bolt"></i>
+          <span class="recruiter-toggle-text">Recruiter Mode</span>
+        </button>
+
+        <!-- Quick Share Button -->
+        <button id="quick-share-btn" class="nav-share-btn" aria-label="Share Portfolio" title="Copy Portfolio Link">
+          <i class="fas fa-share-nodes"></i>
+        </button>
+
         <!-- Dark/Light Mode Switcher -->
         <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme">
           <i id="theme-icon" class="fas fa-sun"></i>
@@ -90,10 +107,17 @@
         
         <!-- Intro & Call To Actions (Centered) -->
         <div class="hero-content hero-content-centered">
-          <!-- Availability Badge -->
-          <div class="hero-badge">
-            <span class="pulse-dot"></span>
-            <span>Looking for Internship Opportunities & Project Collaborations</span>
+          <!-- Hero Badges Group -->
+          <div class="hero-badges-group">
+            <div class="hero-badge">
+              <span class="pulse-dot"></span>
+              <span>Looking for Internship Opportunities & Project Collaborations</span>
+            </div>
+            <div class="hero-badge hero-exploring-badge">
+              <i class="fas fa-compass exploring-icon"></i>
+              <span class="exploring-label">Currently Exploring:</span>
+              <span id="exploring-text" class="exploring-text">Cloud Infrastructure & DNS Systems</span>
+            </div>
           </div>
 
           <!-- Main Greeting & Name -->
@@ -115,8 +139,8 @@
 
           <!-- Call to Action Buttons -->
           <div class="hero-ctas">
-            <a href="#projects" class="btn btn-primary">
-              <i class="fas fa-chart-pie"></i> View Featured Project
+            <a href="projects.html" class="btn btn-primary">
+              <i class="fas fa-folder-open"></i> View Projects
             </a>
             <a href="#contact" class="btn btn-secondary">
               <i class="fas fa-envelope"></i> Get In Touch
@@ -245,7 +269,7 @@
         
         <div class="section-header">
           <span class="section-tag">02. Capabilities</span>
-          <h2 class="section-title">Technical <span class="gradient-text">Arsenal</span></h2>
+          <h2 class="section-title">Skill <span class="gradient-text">Development</span></h2>
           <p class="section-subtitle">The tools, technologies, and methodologies I leverage to bring ideas to life.</p>
         </div>
 
@@ -298,47 +322,74 @@
         
         <div class="section-header">
           <span class="section-tag">03. Selected Work</span>
-          <h2 class="section-title">Featured <span class="gradient-text">Project</span></h2>
-          <p class="section-subtitle">A showcase of my primary data analytics project, system design, and quantitative implementation.</p>
+          <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+          <p class="section-subtitle">Explore my technical projects, system architectures, and AI-assisted implementations on a dedicated projects page.</p>
         </div>
 
-        <!-- Projects Grid Container -->
-        <div class="projects-grid single-project">
+        <!-- Projects Showcase & Live GitHub Grid -->
+        <div class="projects-portal-grid">
           
-          <!-- ================= FEATURED PROJECT ================= -->
-          <div class="glass-card project-card" data-category="fullstack">
-            <!-- Project Image Preview Area -->
-            <div class="project-image-box">
-              <img src="assets/portfolio-preview.png" alt="Personal Portfolio & Web Application Screenshot" class="project-img">
+          <!-- Projects Showcase Portal Box -->
+          <div class="glass-card projects-portal-box">
+            <div class="portal-icon-box">
+              <i class="fas fa-folder-open"></i>
             </div>
-
-            <!-- Project Details -->
-            <div class="project-content">
-              <span class="project-badge-inline"><i class="fas fa-wand-magic-sparkles" style="margin-right: 0.35rem;"></i> AI-Assisted Development</span>
-              <h3 class="project-title">Personal Portfolio & Web Application</h3>
-              <p class="project-desc">
-                A modern portfolio web application engineered using an AI-assisted vibe coding procedure. Directed the development process through conversational prompting, iterative architecture design, and real-time evaluation. Integrated domain management via GoDaddy with Cloudflare for DNS routing, global CDN caching, and SSL/TLS security encryption.
+            <div>
+              <h3 style="font-family: var(--font-heading); font-size: 1.45rem; margin-bottom: 0.6rem; color: var(--text-primary);">Project Showcase</h3>
+              <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; max-width: 380px; margin: 0 auto;">
+                Explore in-depth case studies, AI vibe coding procedure, domain architecture, and cloud infrastructure.
               </p>
-              
-              <!-- Tech Stack Badges -->
-              <div class="project-tech-stack">
-                <span class="tech-tag">AI-Assisted Development</span>
-                <span class="tech-tag">Vibe Coding</span>
-                <span class="tech-tag">Cloudflare</span>
-                <span class="tech-tag">GoDaddy</span>
-                <span class="tech-tag">Git & GitHub</span>
-              </div>
+            </div>
+            <a href="projects.html" class="btn btn-primary" id="view-projects-page-btn" style="margin-top: auto; padding: 0.85rem 2rem; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.6rem;">
+              <i class="fas fa-arrow-up-right-from-square"></i> View Projects Page
+            </a>
+          </div>
 
-              <!-- Action Links -->
-              <div class="project-actions">
-                <a href="#hero" class="project-action-link">
-                  <i class="fas fa-arrow-up-right-from-square"></i> Live Application
-                </a>
-                <a href="https://github.com/adwest27" target="_blank" rel="noopener noreferrer" class="project-action-link">
-                  <i class="fab fa-github"></i> GitHub Code
-                </a>
+          <!-- Live GitHub Activity Card -->
+          <div class="glass-card github-activity-card">
+            <div class="github-card-header">
+              <div class="github-card-header-left">
+                <i class="fab fa-github"></i>
+                <div>
+                  <h3 class="github-card-title">GitHub Activity</h3>
+                  <span class="github-card-subtitle">Live from @adwest27</span>
+                </div>
+              </div>
+              <span class="github-live-badge">
+                <span class="pulse-dot"></span>
+                Live
+              </span>
+            </div>
+
+            <!-- Profile Info Row -->
+            <div class="github-user-row">
+              <div class="github-user-info">
+                <img src="https://avatars.githubusercontent.com/u/321864273?v=4" alt="Andrew West" class="gh-avatar">
+                <div>
+                  <div class="gh-name">Andrew West</div>
+                  <div class="gh-handle">@adwest27</div>
+                </div>
+              </div>
+              <div class="gh-stat-pill">
+                <i class="fas fa-code-branch" style="color: var(--accent-primary);"></i>
+                <span><strong class="gh-public-repos">2</strong> Public Repos</span>
               </div>
             </div>
+
+            <!-- Latest Repository Box -->
+            <div class="github-repo-preview">
+              <span class="github-repo-preview-tag">Latest Updated Repository</span>
+              <div class="github-repo-header">
+                <a href="https://github.com/adwest27/origin" target="_blank" rel="noopener noreferrer" class="gh-repo-name">origin</a>
+                <span class="gh-repo-lang">CSS / Web</span>
+              </div>
+              <p class="gh-repo-desc">Personal Portfolio web application</p>
+            </div>
+
+            <!-- Profile CTA Link -->
+            <a href="https://github.com/adwest27" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: auto; padding: 0.8rem 1.6rem; font-size: 0.92rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">
+              <i class="fab fa-github"></i> Visit GitHub Profile
+            </a>
           </div>
 
         </div>
@@ -525,7 +576,7 @@
       <div class="footer-nav">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
+        <a href="projects.html">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </div>
@@ -676,6 +727,127 @@
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       SPOTLIGHT COMMAND PALETTE (Ctrl + K / Cmd + K)
+       ===================================================================== -->
+  <div id="cmd-palette" class="cmd-palette-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="cmd-palette-modal glass-card">
+      <div class="cmd-palette-input-wrap">
+        <i class="fas fa-search cmd-search-icon"></i>
+        <input type="text" id="cmd-palette-input" class="cmd-palette-input" placeholder="Type a command or jump to section..." autocomplete="off" spellcheck="false">
+        <kbd class="cmd-kbd-esc" id="cmd-close-kbd">ESC</kbd>
+      </div>
+
+      <div class="cmd-palette-results" id="cmd-palette-results">
+        <!-- Navigation Section -->
+        <div class="cmd-group">
+          <div class="cmd-group-title">Navigation</div>
+          <button class="cmd-item" data-action="navigate" data-target="#hero">
+            <i class="fas fa-house"></i>
+            <span>Home</span>
+            <span class="cmd-item-shortcut">#hero</span>
+          </button>
+          <button class="cmd-item" data-action="navigate" data-target="#about">
+            <i class="fas fa-user"></i>
+            <span>About Andrew</span>
+            <span class="cmd-item-shortcut">#about</span>
+          </button>
+          <button class="cmd-item" data-action="navigate" data-target="#skills">
+            <i class="fas fa-laptop-code"></i>
+            <span>Skill Development</span>
+            <span class="cmd-item-shortcut">#skills</span>
+          </button>
+          <button class="cmd-item" data-action="navigate" data-target="projects.html">
+            <i class="fas fa-folder-open"></i>
+            <span>View Projects Page</span>
+            <span class="cmd-item-shortcut">projects.html</span>
+          </button>
+          <button class="cmd-item" data-action="navigate" data-target="#experience">
+            <i class="fas fa-briefcase"></i>
+            <span>Experience & Education</span>
+            <span class="cmd-item-shortcut">#experience</span>
+          </button>
+          <button class="cmd-item" data-action="navigate" data-target="#contact">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+            <span class="cmd-item-shortcut">#contact</span>
+          </button>
+        </div>
+
+        <!-- Quick Actions Section -->
+        <div class="cmd-group">
+          <div class="cmd-group-title">Quick Actions</div>
+          <button class="cmd-item" data-action="resume">
+            <i class="fas fa-file-lines"></i>
+            <span>View / Print Resume</span>
+            <span class="cmd-badge">Modal</span>
+          </button>
+          <button class="cmd-item" data-action="recruiter">
+            <i class="fas fa-bolt"></i>
+            <span>Toggle Recruiter 1-Minute Mode</span>
+            <span class="cmd-badge">Toggle</span>
+          </button>
+          <button class="cmd-item" data-action="share">
+            <i class="fas fa-share-nodes"></i>
+            <span>Share Portfolio (Copy Link)</span>
+            <span class="cmd-badge">Copy</span>
+          </button>
+          <button class="cmd-item" data-action="theme">
+            <i class="fas fa-circle-half-stroke"></i>
+            <span>Toggle Dark / Light Theme</span>
+            <span class="cmd-badge">Theme</span>
+          </button>
+          <button class="cmd-item" data-action="email">
+            <i class="fas fa-copy"></i>
+            <span>Copy Email Address (adwest27@gmail.com)</span>
+            <span class="cmd-badge">Copy</span>
+          </button>
+          <button class="cmd-item" data-action="github">
+            <i class="fab fa-github"></i>
+            <span>Open GitHub Profile (@adwest27)</span>
+            <span class="cmd-badge">External</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="cmd-palette-footer">
+        <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+        <span><kbd>↵</kbd> to select</span>
+        <span><kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       QUICK SHARE TOAST NOTIFICATION
+       ===================================================================== -->
+  <div id="share-toast" class="share-toast" aria-live="polite">
+    <div class="share-toast-content">
+      <div class="share-toast-icon"><i class="fas fa-check"></i></div>
+      <div class="share-toast-text">
+        <strong id="toast-title">Link copied to clipboard!</strong>
+        <span id="toast-desc">Ready to share with hiring managers & recruiters.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       RECRUITER 1-MINUTE MODE FLOATING BANNER
+       ===================================================================== -->
+  <div id="recruiter-banner" class="recruiter-banner" aria-hidden="true">
+    <div class="container recruiter-banner-inner">
+      <div class="recruiter-banner-left">
+        <span class="recruiter-pill-tag"><i class="fas fa-bolt"></i> 1-MIN RECRUITER SCAN</span>
+        <span class="recruiter-banner-summary"><strong>Andrew West</strong> · ISDS Junior at LSU (3.5 GPA) · Python, Cloudflare, Product Flow & Systems</span>
+      </div>
+      <div class="recruiter-banner-actions">
+        <button type="button" class="btn btn-sm btn-primary open-resume-modal-btn"><i class="fas fa-file-lines"></i> Open Resume</button>
+        <a href="#contact" class="btn btn-sm btn-secondary"><i class="fas fa-paper-plane"></i> Quick Connect</a>
+        <button type="button" id="recruiter-banner-close" class="recruiter-close-btn" title="Exit Recruiter Mode"><i class="fas fa-times"></i></button>
+      </div>
     </div>
   </div>
 

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Andrew West - Information Systems & Decision Sciences college student at Louisiana State University.">
+  <meta name="author" content="Andrew West">
+  <title>Projects | Andrew West — Information Systems & Decision Sciences</title>
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       AMBIENT BACKGROUND LIGHTING (Glowing Blobs)
+       ===================================================================== -->
+  <div class="ambient-glow-wrapper" aria-hidden="true">
+    <div class="ambient-blob-1"></div>
+    <div class="ambient-blob-2"></div>
+    <div class="ambient-blob-3"></div>
+  </div>
+
+  <!-- =====================================================================
+       00. SITE HEADER & NAVIGATION
+       ===================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo / Monogram -->
+      <a href="index.html#hero" class="brand-logo" aria-label="Home">
+        <span class="brand-badge">AW</span>
+        <span>Andrew <span class="gradient-text">West</span></span>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="projects.html" class="nav-link active">Projects</a></li>
+          <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons & Theme Switcher -->
+      <div class="nav-actions">
+        <!-- Spotlight Command Palette Trigger -->
+        <button id="cmd-palette-btn" class="nav-cmd-btn" aria-label="Open Command Palette" title="Command Palette (Ctrl + K)">
+          <i class="fas fa-terminal"></i>
+          <span class="cmd-shortcut-hint">Ctrl K</span>
+        </button>
+
+        <!-- Quick Share Button -->
+        <button id="quick-share-btn" class="nav-share-btn" aria-label="Share Portfolio" title="Copy Portfolio Link">
+          <i class="fas fa-share-nodes"></i>
+        </button>
+
+        <!-- Dark/Light Mode Switcher -->
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme">
+          <i id="theme-icon" class="fas fa-sun"></i>
+        </button>
+
+        <!-- Resume View / Download Button -->
+        <button type="button" class="btn btn-secondary btn-sm open-resume-modal-btn" id="nav-resume-btn" title="View Resume">
+          <i class="fas fa-file-lines"></i> Resume
+        </button>
+
+        <!-- Let's Talk Contact Button -->
+        <a href="index.html#contact" class="btn btn-primary btn-sm" id="nav-contact-btn">
+          <i class="fas fa-paper-plane"></i> Let's Talk
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Open mobile navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main style="padding-top: calc(var(--header-height) + 2rem); min-height: 80vh;">
+    <!-- ===================================================================
+         PROJECTS SECTION
+         =================================================================== -->
+    <section class="projects-section" style="padding-top: 1.5rem; padding-bottom: 5rem;">
+      <div class="container">
+        
+        <div class="section-header" style="margin-bottom: 2.5rem;">
+          <a href="index.html" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+            <i class="fas fa-arrow-left"></i> Back to Home
+          </a>
+          <span class="section-tag">Project Showcase</span>
+          <h1 class="section-title">My <span class="gradient-text">Projects</span></h1>
+          <p class="section-subtitle">A showcase of my technical and academic project work in Information Systems & Decision Sciences.</p>
+        </div>
+
+        <!-- Projects Grid Container -->
+        <div class="projects-grid single-project">
+          
+          <!-- ================= FEATURED PROJECT ================= -->
+          <div class="glass-card project-card" data-category="fullstack">
+            <!-- Project Image Preview Area -->
+            <div class="project-image-box">
+              <img src="assets/portfolio-preview.png" alt="Personal Portfolio & Web Application Screenshot" class="project-img">
+            </div>
+
+            <!-- Project Details -->
+            <div class="project-content">
+              <span class="project-badge-inline"><i class="fas fa-wand-magic-sparkles" style="margin-right: 0.35rem;"></i> AI-Assisted Development</span>
+              <h2 class="project-title" style="font-size: 1.4rem;">Personal Portfolio & Web Application</h2>
+              <p class="project-desc">
+                A modern portfolio web application engineered using an AI-assisted vibe coding procedure. Directed the development process through conversational prompting, iterative architecture design, and real-time evaluation. Integrated domain management via GoDaddy with Cloudflare for DNS routing, global CDN caching, and SSL/TLS security encryption.
+              </p>
+              
+              <!-- Tech Stack Badges -->
+              <div class="project-tech-stack">
+                <span class="tech-tag">AI-Assisted Development</span>
+                <span class="tech-tag">Vibe Coding</span>
+                <span class="tech-tag">Cloudflare</span>
+                <span class="tech-tag">GoDaddy</span>
+                <span class="tech-tag">Git & GitHub</span>
+              </div>
+
+              <!-- Action Links -->
+              <div class="project-actions">
+                <a href="index.html#hero" class="project-action-link">
+                  <i class="fas fa-arrow-up-right-from-square"></i> Live Application
+                </a>
+                <a href="https://github.com/adwest27" target="_blank" rel="noopener noreferrer" class="project-action-link">
+                  <i class="fab fa-github"></i> GitHub Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Live GitHub Activity Showcase -->
+        <div style="max-width: 680px; margin: 3rem auto 0 auto;">
+          <div class="glass-card github-activity-card">
+            <div class="github-card-header">
+              <div class="github-card-header-left">
+                <i class="fab fa-github"></i>
+                <div>
+                  <h3 class="github-card-title">GitHub Activity</h3>
+                  <span class="github-card-subtitle">Live from @adwest27</span>
+                </div>
+              </div>
+              <span class="github-live-badge">
+                <span class="pulse-dot"></span>
+                Live
+              </span>
+            </div>
+
+            <!-- Profile Info Row -->
+            <div class="github-user-row">
+              <div class="github-user-info">
+                <img src="https://avatars.githubusercontent.com/u/321864273?v=4" alt="Andrew West" class="gh-avatar">
+                <div>
+                  <div class="gh-name">Andrew West</div>
+                  <div class="gh-handle">@adwest27</div>
+                </div>
+              </div>
+              <div class="gh-stat-pill">
+                <i class="fas fa-code-branch" style="color: var(--accent-primary);"></i>
+                <span><strong class="gh-public-repos">2</strong> Public Repos</span>
+              </div>
+            </div>
+
+            <!-- Latest Repository Box -->
+            <div class="github-repo-preview">
+              <span class="github-repo-preview-tag">Latest Updated Repository</span>
+              <div class="github-repo-header">
+                <a href="https://github.com/adwest27/origin" target="_blank" rel="noopener noreferrer" class="gh-repo-name">origin</a>
+                <span class="gh-repo-lang">CSS / Web</span>
+              </div>
+              <p class="gh-repo-desc">Personal Portfolio web application</p>
+            </div>
+
+            <!-- Profile CTA Link -->
+            <a href="https://github.com/adwest27" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: auto; padding: 0.8rem 1.6rem; font-size: 0.92rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">
+              <i class="fab fa-github"></i> Visit GitHub Profile
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       08. FOOTER
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      
+      <!-- Copyright & Credit -->
+      <div class="footer-text">
+        © <span id="current-year">2026</span> <strong>Andrew West</strong>. All rights reserved. Built with passion & precision.
+      </div>
+
+      <!-- Quick Footer Links -->
+      <div class="footer-nav">
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <!-- Back to Top Button -->
+      <a href="#site-header" id="back-to-top" class="back-to-top-btn" title="Back to top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+      </a>
+
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       09. RESUME MODAL POPUP
+       ===================================================================== -->
+  <div class="modal-backdrop" id="resume-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
+    <div class="modal-dialog">
+      
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-title-area">
+          <i class="fas fa-file-lines modal-icon"></i>
+          <div>
+            <h2 id="resume-modal-title" class="modal-title">Andrew West — Resume</h2>
+            <span class="modal-subtitle">Information Systems & Decision Sciences</span>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-sm btn-primary modal-action-btn" id="resume-print-btn" title="Print or Save as PDF">
+            <i class="fas fa-print"></i> Print / Save PDF
+          </button>
+          <button type="button" class="modal-close-btn" id="resume-close-btn" aria-label="Close resume popup">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body (Printable Resume Document) -->
+      <div class="modal-body">
+        <div class="resume-paper" id="resume-paper-content">
+          
+          <!-- Header -->
+          <header class="resume-header">
+            <h1 class="resume-name">Andrew West</h1>
+            <p class="resume-tagline">Information Systems & Decision Sciences (ISDS) | Data Analytics | Systems Modeling</p>
+            <div class="resume-contact-bar">
+              <span><i class="fas fa-location-dot"></i> Baton Rouge, LA</span>
+              <span><i class="fas fa-envelope"></i> adwest0127@gmail.com</span>
+              <span><i class="fab fa-linkedin"></i> linkedin.com/in/andrew-west-1b4030390</span>
+              <span><i class="fab fa-github"></i> github.com/adwest27</span>
+            </div>
+          </header>
+
+          <hr class="resume-divider">
+
+          <!-- Summary -->
+          <section class="resume-section">
+            <h2 class="resume-section-title">Professional Summary</h2>
+            <p class="resume-summary-text">
+              Aspiring Information Systems and Decision Sciences student at Louisiana State University with a dedicated focus on leveraging data analytics, modern systems, and strategic problem-solving to drive impactful decisions. Focused on quantitative analysis, building efficient technological solutions, Python development, and cyber risk analysis.
+            </p>
+          </section>
+
+          <!-- Education -->
+          <section class="resume-section">
+            <h2 class="resume-section-title">Education</h2>
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div>
+                  <h3 class="resume-institution">Louisiana State University (LSU)</h3>
+                  <div class="resume-degree">Bachelor of Science in Information Systems & Decision Sciences (ISDS)</div>
+                </div>
+                <div class="resume-meta">
+                  <span class="resume-date">Expected Graduation: Fall 2027</span>
+                  <span class="resume-location">Baton Rouge, LA</span>
+                </div>
+              </div>
+              <ul class="resume-bullets">
+                <li><strong>Relevant Coursework:</strong> ISDS 3100 - Information Systems Foundations, ISDS 3107 - Design of IS Systems.</li>
+                <li><strong>Campus Organizations:</strong> Active member of the Association of Information Technology Professionals (AITP).</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Technical Skills -->
+          <section class="resume-section">
+            <h2 class="resume-section-title">Technical Skills & Competencies</h2>
+            <div class="resume-skills-grid">
+              <div class="resume-skill-row">
+                <strong>Programming & Scripting:</strong>
+                <span>Python (Data Manipulation, Modeling, Automation), SQL Querying & Relational Schema Design</span>
+              </div>
+              <div class="resume-skill-row">
+                <strong>Analytics & Decision Sciences:</strong>
+                <span>Quantitative Analysis, Business Systems Analysis, Data Modeling, Cyber Risk Evaluation</span>
+              </div>
+              <div class="resume-skill-row">
+                <strong>Systems, Version Control & Tools:</strong>
+                <span>Git, GitHub, Database Management Systems (DBMS), Advanced Spreadsheet Modeling</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Work Experience -->
+          <section class="resume-section">
+            <h2 class="resume-section-title">Work Experience</h2>
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div>
+                  <h3 class="resume-institution">Best Buy</h3>
+                  <div class="resume-degree">Product Flow Specialist</div>
+                </div>
+                <div class="resume-meta">
+                  <span class="resume-date">2024 — Present</span>
+                  <span class="resume-location">Baton Rouge, LA</span>
+                </div>
+              </div>
+              <ul class="resume-bullets">
+                <li>Used Best Buy's inventory system to maintain, audit, and track inventory assets.</li>
+                <li>Managed various tasks including processing customer orders, shipments, and product that needed to be received.</li>
+                <li>Work in a timely manner to meet customer satisfaction and make sure work efficiency is at its highest.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Featured Project -->
+          <section class="resume-section">
+            <h2 class="resume-section-title">Technical Projects</h2>
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div>
+                  <h3 class="resume-institution">Personal Portfolio & Web Application</h3>
+                  <div class="resume-degree">AI-Assisted Development | Vibe Coding | Cloudflare | GoDaddy | Git & GitHub</div>
+                </div>
+                <div class="resume-meta">
+                  <span class="resume-date">2026 — Present</span>
+                </div>
+              </div>
+              <ul class="resume-bullets">
+                <li>Directed the end-to-end development of a modern personal portfolio web application utilizing an AI-assisted vibe coding procedure.</li>
+                <li>Employed conversational prompting and iterative refinement to build dynamic features including dark/light mode toggles, an interactive printable resume modal, and smooth micro-animations.</li>
+                <li>Configured domain registration and DNS management via GoDaddy, integrated with Cloudflare for global CDN delivery, DNS routing, and SSL/TLS security protection.</li>
+                <li>Maintained human-in-the-loop quality control, local server validation, and structured version control using Git and GitHub workflows.</li>
+              </ul>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       SPOTLIGHT COMMAND PALETTE (Ctrl + K / Cmd + K)
+       ===================================================================== -->
+  <div id="cmd-palette" class="cmd-palette-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="cmd-palette-modal glass-card">
+      <div class="cmd-palette-input-wrap">
+        <i class="fas fa-search cmd-search-icon"></i>
+        <input type="text" id="cmd-palette-input" class="cmd-palette-input" placeholder="Type a command or jump to section..." autocomplete="off" spellcheck="false">
+        <kbd class="cmd-kbd-esc" id="cmd-close-kbd">ESC</kbd>
+      </div>
+
+      <div class="cmd-palette-results" id="cmd-palette-results">
+        <!-- Navigation Section -->
+        <div class="cmd-group">
+          <div class="cmd-group-title">Navigation</div>
+          <button class="cmd-item" data-action="navigate" data-target="index.html#hero">
+            <i class="fas fa-house"></i>
+            <span>Home</span>
+            <span class="cmd-item-shortcut">index.html</span>
+          </button>
+          <button class="cmd-item" data-action="navigate" data-target="index.html#about">
+            <i class="fas fa-user"></i>
+            <span>About Andrew</span>
+            <span class="cmd-item-shortcut">#about</span>
+          </button>
+          <button class="cmd-item" data-action="navigate" data-target="index.html#skills">
+            <i class="fas fa-laptop-code"></i>
+            <span>Skill Development</span>
+            <span class="cmd-item-shortcut">#skills</span>
+          </button>
+          <button class="cmd-item" data-action="navigate" data-target="projects.html">
+            <i class="fas fa-folder-open"></i>
+            <span>Projects Showcase</span>
+            <span class="cmd-item-shortcut">projects.html</span>
+          </button>
+          <button class="cmd-item" data-action="navigate" data-target="index.html#experience">
+            <i class="fas fa-briefcase"></i>
+            <span>Experience & Education</span>
+            <span class="cmd-item-shortcut">#experience</span>
+          </button>
+          <button class="cmd-item" data-action="navigate" data-target="index.html#contact">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+            <span class="cmd-item-shortcut">#contact</span>
+          </button>
+        </div>
+
+        <!-- Quick Actions Section -->
+        <div class="cmd-group">
+          <div class="cmd-group-title">Quick Actions</div>
+          <button class="cmd-item" data-action="resume">
+            <i class="fas fa-file-lines"></i>
+            <span>View / Print Resume</span>
+            <span class="cmd-badge">Modal</span>
+          </button>
+          <button class="cmd-item" data-action="share">
+            <i class="fas fa-share-nodes"></i>
+            <span>Share Portfolio (Copy Link)</span>
+            <span class="cmd-badge">Copy</span>
+          </button>
+          <button class="cmd-item" data-action="theme">
+            <i class="fas fa-circle-half-stroke"></i>
+            <span>Toggle Dark / Light Theme</span>
+            <span class="cmd-badge">Theme</span>
+          </button>
+          <button class="cmd-item" data-action="email">
+            <i class="fas fa-copy"></i>
+            <span>Copy Email Address (adwest27@gmail.com)</span>
+            <span class="cmd-badge">Copy</span>
+          </button>
+          <button class="cmd-item" data-action="github">
+            <i class="fab fa-github"></i>
+            <span>Open GitHub Profile (@adwest27)</span>
+            <span class="cmd-badge">External</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="cmd-palette-footer">
+        <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+        <span><kbd>↵</kbd> to select</span>
+        <span><kbd>ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       QUICK SHARE TOAST NOTIFICATION
+       ===================================================================== -->
+  <div id="share-toast" class="share-toast" aria-live="polite">
+    <div class="share-toast-content">
+      <div class="share-toast-icon"><i class="fas fa-check"></i></div>
+      <div class="share-toast-text">
+        <strong id="toast-title">Link copied to clipboard!</strong>
+        <span id="toast-desc">Ready to share with hiring managers & recruiters.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
