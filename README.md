@@ -67,7 +67,7 @@ Look for these key sections in [`index.html`](index.html):
 |---|---|---|
 | **SEO & Title** | `<head>` | Page `<title>`, `<meta name="description">`, and author tag |
 | **Navbar Brand** | `#site-header` | Monogram `[YN]` and Name `[YourName]` |
-| **Hero Section** | `#hero` | Real name, elevator pitch, social media links (GitHub, LinkedIn, Twitter, Email) |
+| **Hero Section** | `#hero` | Real name, elevator pitch, social media links (GitHub, LinkedIn, Email) |
 | **About Section** | `#about` | Headshot image (or keep the monogram badge), years of experience, bio paragraphs, and statistics counters |
 | **Skills Arsenal** | `#skills` | Backend & APIs, and DevOps & Tools customizable pills |
 | **Featured Project** | `#projects` | Featured project screenshot/banner, title, description, tech stack, live demo link, and GitHub repository |

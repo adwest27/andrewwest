@@ -62,9 +62,13 @@
           <i id="theme-icon" class="fas fa-sun"></i>
         </button>
 
-        <!-- Resume Download / View Button -->
-        <!-- EDIT: Update href with your resume PDF link or path -->
-        <a href="#contact" class="btn btn-primary btn-sm" id="nav-resume-btn">
+        <!-- Resume View / Download Button -->
+        <button type="button" class="btn btn-secondary btn-sm open-resume-modal-btn" id="nav-resume-btn" title="View Resume">
+          <i class="fas fa-file-lines"></i> Resume
+        </button>
+
+        <!-- Let's Talk Contact Button -->
+        <a href="#contact" class="btn btn-primary btn-sm" id="nav-contact-btn">
           <i class="fas fa-paper-plane"></i> Let's Talk
         </a>
 
@@ -82,14 +86,14 @@
          01. HERO SECTION
          =================================================================== -->
     <section class="hero-section" id="hero">
-      <div class="container hero-grid">
+      <div class="container">
         
-        <!-- Left: Intro & Call To Actions -->
-        <div class="hero-content">
+        <!-- Intro & Call To Actions (Centered) -->
+        <div class="hero-content hero-content-centered">
           <!-- Availability Badge -->
           <div class="hero-badge">
             <span class="pulse-dot"></span>
-            <span>Available for New Projects & Roles</span>
+            <span>Looking for Internship Opportunities & Project Collaborations</span>
           </div>
 
           <!-- Main Greeting & Name -->
@@ -106,7 +110,7 @@
 
           <!-- Hero Pitch / Elevator Tagline -->
           <p class="hero-description">
-            Leveraging Information Systems, Data Analytics, and Python to transform complex data into actionable decision-making insights. Focused on database modeling, quantitative analysis, and building efficient technological solutions.
+            I am aspiring in Information Systems and Decision Sciences to leverage data analytics, modern systems, and strategic problem-solving to drive impactful decisions. Focused on improving on quantitative analysis, building efficient technological solutions, python development, and cyber risk analysis.
           </p>
 
           <!-- Call to Action Buttons -->
@@ -117,64 +121,24 @@
             <a href="#contact" class="btn btn-secondary">
               <i class="fas fa-envelope"></i> Get In Touch
             </a>
-            <!-- EDIT: Point this to your resume document -->
-            <a href="#" class="btn btn-secondary" title="Download CV">
-              <i class="fas fa-download"></i> Resume / CV
-            </a>
+            <button type="button" class="btn btn-secondary open-resume-modal-btn" id="hero-resume-btn" title="View Resume">
+              <i class="fas fa-file-lines"></i> Resume
+            </button>
           </div>
 
           <!-- Social Links Bar -->
           <div class="hero-socials">
             <span class="hero-social-label">Connect:</span>
             <!-- EDIT: Update these links with your actual URLs -->
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile">
+            <a href="https://github.com/adwest27" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile">
               <i class="fab fa-github"></i>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile">
+            <a href="https://www.linkedin.com/in/andrew-west-1b4030390" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="LinkedIn Profile">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Twitter / X Profile">
-              <i class="fab fa-x-twitter"></i>
-            </a>
-            <a href="mailto:your.email@example.com" class="btn-icon" aria-label="Email Me">
+            <a href="mailto:adwest0127@gmail.com" class="btn-icon" aria-label="Email Me">
               <i class="fas fa-envelope"></i>
             </a>
-          </div>
-        </div>
-
-        <!-- Right: Modern Interactive Developer Card / Graphic -->
-        <div class="hero-visual">
-          <div class="code-mockup-card">
-            <div class="mockup-header">
-              <div class="mockup-dots">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <span class="mockup-title">AnalyticsProfile.py</span>
-            </div>
-            <div class="mockup-body">
-              <span class="code-keyword">analyst</span> = {<br>
-              &nbsp;&nbsp;<span class="code-prop">"name"</span>: <span class="code-str">"Andrew West"</span>,<br>
-              &nbsp;&nbsp;<span class="code-prop">"major"</span>: <span class="code-str">"Information Systems & Decision Science"</span>,<br>
-              &nbsp;&nbsp;<span class="code-prop">"status"</span>: <span class="code-str">"College Student"</span>,<br>
-              &nbsp;&nbsp;<span class="code-prop">"location"</span>: <span class="code-str">"Baton Rouge, Louisiana"</span>,<br>
-              &nbsp;&nbsp;<span class="code-prop">"core_skills"</span>: [<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-str">"Python"</span>, <span class="code-str">"Data Analysis"</span>, <span class="code-str">"Git"</span><br>
-              &nbsp;&nbsp;],<br>
-              &nbsp;&nbsp;<span class="code-prop">"coffee_level"</span>: <span class="code-num">100</span>,<br>
-              &nbsp;&nbsp;<span class="code-prop">"driven_by_data"</span>: <span class="code-keyword">True</span><br>
-              }<br><br>
-              <span class="code-comment"># Transforming raw data into strategic intelligence.</span>
-            </div>
-
-            <!-- Floating UI Pills -->
-            <div class="floating-pill pill-top-right">
-              <i class="fas fa-chart-line" style="color: var(--success);"></i> Decision Analytics
-            </div>
-            <div class="floating-pill pill-bottom-left">
-              <i class="fas fa-database" style="color: #f59e0b;"></i> Systems & Data
-            </div>
           </div>
         </div>
 
@@ -345,36 +309,35 @@
           <div class="glass-card project-card" data-category="fullstack">
             <!-- Project Image / Mockup Preview Area -->
             <div class="project-image-box">
-              <span class="project-badge">Analytics & Systems</span>
+              <span class="project-badge">Web Application & Systems</span>
               <div class="project-mockup-graphic">
-                <i class="fas fa-chart-pie"></i>
-                <span class="placeholder-hint">[Analytics Dashboard / Model Visualizer]</span>
+                <i class="fas fa-laptop-code"></i>
+                <span class="placeholder-hint">Interactive Portfolio Web Application</span>
               </div>
             </div>
 
             <!-- Project Details -->
             <div class="project-content">
-              <!-- EDIT: Project Title -->
-              <h3 class="project-title">[Project Title: Data Analytics & Decision Support System]</h3>
-              <!-- EDIT: Project Short Description -->
+              <h3 class="project-title">Personal Portfolio & Web Application</h3>
               <p class="project-desc">
-                [An end-to-end data analytics system designed to process, model, and visualize operational performance metrics. Built with Python to transform raw datasets into actionable business intelligence, structured reporting, and automated workflows.]
+                A modern, responsive portfolio web application designed for Information Systems and Decision Sciences. Engineered with semantic HTML5, Vanilla CSS3 featuring custom glassmorphism and dynamic dark/light themes, and modular JavaScript powering an interactive printable resume modal, dynamic typewriter typography, and asynchronous form interactions.
               </p>
               
               <!-- Tech Stack Badges -->
               <div class="project-tech-stack">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Data Analysis</span>
-                <span class="tech-tag">Information Systems</span>
-                <span class="tech-tag">Git</span>
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Git & GitHub</span>
+                <span class="tech-tag">Responsive Design</span>
               </div>
 
               <!-- Action Links -->
               <div class="project-actions">
-                <a href="#" target="_blank" rel="noopener noreferrer" class="project-action-link">
-                  <i class="fas fa-arrow-up-right-from-square"></i> Project Demo / Report
+                <a href="#hero" class="project-action-link">
+                  <i class="fas fa-arrow-up-right-from-square"></i> Live Application
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" class="project-action-link">
+                <a href="https://github.com/adwest27" target="_blank" rel="noopener noreferrer" class="project-action-link">
                   <i class="fab fa-github"></i> GitHub Code
                 </a>
               </div>
@@ -401,7 +364,7 @@
         <!-- Timeline Tab Switcher -->
         <div class="timeline-tabs">
           <button class="timeline-tab-btn active" data-tab="work">Work Experience</button>
-          <button class="timeline-tab-btn" data-tab="education">Education & Degrees</button>
+          <button class="timeline-tab-btn" data-tab="education">Education</button>
         </div>
 
         <!-- Work Experience Timeline -->
@@ -446,22 +409,6 @@
             </div>
           </div>
 
-          <!-- Education Item 2: Certifications -->
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-header-row">
-                <h3 class="timeline-role">[Certifications & Analytical Training]</h3>
-                <span class="timeline-date-badge">[Year Acquired / In Progress]</span>
-              </div>
-              <div class="timeline-org">[Issuing Body / Academic Program]</div>
-              <ul class="timeline-bullets">
-                <li>[Data Analytics & Python Specialization / Database Management Foundations]</li>
-                <li>[Practical focus on data wrangling, SQL querying, quantitative modeling, and data-backed business reporting.]</li>
-              </ul>
-            </div>
-          </div>
-
         </div>
 
       </div>
@@ -497,8 +444,7 @@
                 </div>
                 <div>
                   <div class="contact-item-label">Direct Email</div>
-                  <!-- EDIT: Replace with your actual email address -->
-                  <div class="contact-item-value" id="contact-email-text">your.email@example.com</div>
+                  <div class="contact-item-value" id="contact-email-text">adwest0127@gmail.com</div>
                 </div>
                 <button type="button" class="copy-email-btn" id="copy-email-btn" title="Copy email address" aria-label="Copy email">
                   <i class="fas fa-copy"></i>
@@ -523,7 +469,7 @@
                 </div>
                 <div>
                   <div class="contact-item-label">Availability</div>
-                  <div class="contact-item-value">Available for immediate hire</div>
+                  <div class="contact-item-value">Open to Internships & Project Collaborations</div>
                 </div>
               </div>
 
@@ -595,6 +541,147 @@
 
     </div>
   </footer>
+
+  <!-- =====================================================================
+       09. RESUME MODAL POPUP
+       ===================================================================== -->
+  <div class="modal-backdrop" id="resume-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
+    <div class="modal-dialog">
+      
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-title-area">
+          <i class="fas fa-file-lines modal-icon"></i>
+          <div>
+            <h2 id="resume-modal-title" class="modal-title">Andrew West — Resume</h2>
+            <span class="modal-subtitle">Information Systems & Decision Sciences</span>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-sm btn-primary modal-action-btn" id="resume-print-btn" title="Print or Save as PDF">
+            <i class="fas fa-print"></i> Print / Save PDF
+          </button>
+          <button type="button" class="modal-close-btn" id="resume-close-btn" aria-label="Close resume popup">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body (Printable Resume Document) -->
+      <div class="modal-body">
+        <div class="resume-paper" id="resume-paper-content">
+          
+          <!-- Header -->
+          <header class="resume-header">
+            <h1 class="resume-name">Andrew West</h1>
+            <p class="resume-tagline">Information Systems & Decision Sciences (ISDS) | Data Analytics | Systems Modeling</p>
+            <div class="resume-contact-bar">
+              <span><i class="fas fa-location-dot"></i> Baton Rouge, LA</span>
+              <span><i class="fas fa-envelope"></i> adwest0127@gmail.com</span>
+              <span><i class="fab fa-linkedin"></i> linkedin.com/in/andrew-west-1b4030390</span>
+              <span><i class="fab fa-github"></i> github.com/adwest27</span>
+            </div>
+          </header>
+
+          <hr class="resume-divider">
+
+          <!-- Summary -->
+          <section class="resume-section">
+            <h2 class="resume-section-title">Professional Summary</h2>
+            <p class="resume-summary-text">
+              Aspiring Information Systems and Decision Sciences student at Louisiana State University with a dedicated focus on leveraging data analytics, modern systems, and strategic problem-solving to drive impactful decisions. Focused on quantitative analysis, building efficient technological solutions, Python development, and cyber risk analysis.
+            </p>
+          </section>
+
+          <!-- Education -->
+          <section class="resume-section">
+            <h2 class="resume-section-title">Education</h2>
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div>
+                  <h3 class="resume-institution">Louisiana State University (LSU)</h3>
+                  <div class="resume-degree">Bachelor of Science in Information Systems & Decision Sciences (ISDS)</div>
+                </div>
+                <div class="resume-meta">
+                  <span class="resume-date">Expected Graduation: Fall 2027</span>
+                  <span class="resume-location">Baton Rouge, LA</span>
+                </div>
+              </div>
+              <ul class="resume-bullets">
+                <li><strong>Relevant Coursework:</strong> Database Management Systems, Business Analytics & Modeling, Python for Information Systems, Business Systems Analysis, Quantitative Analysis.</li>
+                <li><strong>Campus Organizations:</strong> Active member of the Association of Information Technology Professionals (AITP).</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Technical Skills -->
+          <section class="resume-section">
+            <h2 class="resume-section-title">Technical Skills & Competencies</h2>
+            <div class="resume-skills-grid">
+              <div class="resume-skill-row">
+                <strong>Programming & Scripting:</strong>
+                <span>Python (Data Manipulation, Modeling, Automation), SQL Querying & Relational Schema Design</span>
+              </div>
+              <div class="resume-skill-row">
+                <strong>Analytics & Decision Sciences:</strong>
+                <span>Quantitative Analysis, Business Systems Analysis, Data Modeling, Cyber Risk Evaluation</span>
+              </div>
+              <div class="resume-skill-row">
+                <strong>Systems, Version Control & Tools:</strong>
+                <span>Git, GitHub, Database Management Systems (DBMS), Advanced Spreadsheet Modeling</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Work Experience -->
+          <section class="resume-section">
+            <h2 class="resume-section-title">Work Experience</h2>
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div>
+                  <h3 class="resume-institution">Best Buy</h3>
+                  <div class="resume-degree">Product Flow Specialist</div>
+                </div>
+                <div class="resume-meta">
+                  <span class="resume-date">2024 — Present</span>
+                  <span class="resume-location">Baton Rouge, LA</span>
+                </div>
+              </div>
+              <ul class="resume-bullets">
+                <li>Manage product intake, logistical inventory flow, and warehouse organization to maintain storewide operational readiness.</li>
+                <li>Ensure accurate stock management, shipment verification, and rapid fulfillment of customer orders.</li>
+                <li>Collaborate with cross-functional retail and tech service teams to streamline inventory turnaround and customer satisfaction.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Featured Project -->
+          <section class="resume-section">
+            <h2 class="resume-section-title">Technical Projects</h2>
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div>
+                  <h3 class="resume-institution">Personal Portfolio & Web Application</h3>
+                  <div class="resume-degree">HTML5 | CSS3 | JavaScript | Git & GitHub | UI/UX Systems</div>
+                </div>
+                <div class="resume-meta">
+                  <span class="resume-date">2026 — Present</span>
+                </div>
+              </div>
+              <ul class="resume-bullets">
+                <li>Architected and developed a modern, high-performance portfolio web application showcasing academic and technical milestones in Information Systems and Decision Sciences.</li>
+                <li>Crafted custom Vanilla CSS3 design systems featuring glassmorphic components, fluid responsive layouts, theme-switching capabilities, and dedicated print formatting for on-demand PDF resume generation.</li>
+                <li>Implemented modular Vanilla JavaScript for dynamic typewriter typography, modal dialog controllers with keyboard trapping, and automated form processing.</li>
+                <li>Utilized Git and GitHub for version control, continuous local testing, and structured repository deployment.</li>
+              </ul>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="js/main.js"></script>

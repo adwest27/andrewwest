@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initCopyEmail();
   initScrollAnimations();
+  initResumeModal();
 });
 
 /* ==========================================================================
@@ -328,3 +329,61 @@ styleSheet.textContent = `
   }
 `;
 document.head.appendChild(styleSheet);
+
+/* ==========================================================================
+   RESUME MODAL CONTROLLER
+   ========================================================================== */
+function initResumeModal() {
+  const modal = document.getElementById('resume-modal');
+  const openButtons = document.querySelectorAll('.open-resume-modal-btn');
+  const closeBtn = document.getElementById('resume-close-btn');
+  const printBtn = document.getElementById('resume-print-btn');
+
+  if (!modal) return;
+
+  function openModal() {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Open modal triggers (Hero and Navbar buttons)
+  openButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  // Close button trigger
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  // Click outside modal backdrop to close
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
+
+  // Print / Save to PDF trigger
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
+}
