@@ -60,6 +60,12 @@
           <span class="cmd-shortcut-hint">Ctrl K</span>
         </button>
 
+        <!-- Recruiter 1-Min Mode Toggle -->
+        <button id="recruiter-mode-toggle" class="recruiter-toggle-btn" aria-label="Toggle Recruiter 1-Minute Mode" title="Recruiter 1-Minute Quick Scan">
+          <i class="fas fa-bolt"></i>
+          <span class="recruiter-toggle-text">Recruiter Mode</span>
+        </button>
+
         <!-- Quick Share Button -->
         <button id="quick-share-btn" class="nav-share-btn" aria-label="Share Portfolio" title="Copy Portfolio Link">
           <i class="fas fa-share-nodes"></i>
@@ -423,6 +429,11 @@
             <span>View / Print Resume</span>
             <span class="cmd-badge">Modal</span>
           </button>
+          <button class="cmd-item" data-action="recruiter">
+            <i class="fas fa-bolt"></i>
+            <span>Toggle Recruiter 1-Minute Mode</span>
+            <span class="cmd-badge">Toggle</span>
+          </button>
           <button class="cmd-item" data-action="share">
             <i class="fas fa-share-nodes"></i>
             <span>Share Portfolio (Copy Link)</span>
@@ -463,6 +474,23 @@
       <div class="share-toast-text">
         <strong id="toast-title">Link copied to clipboard!</strong>
         <span id="toast-desc">Ready to share with hiring managers & recruiters.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       RECRUITER 1-MINUTE MODE FLOATING BANNER
+       ===================================================================== -->
+  <div id="recruiter-banner" class="recruiter-banner" aria-hidden="true">
+    <div class="container recruiter-banner-inner">
+      <div class="recruiter-banner-left">
+        <span class="recruiter-pill-tag"><i class="fas fa-bolt"></i> 1-MIN RECRUITER SCAN</span>
+        <span class="recruiter-banner-summary"><strong>Andrew West</strong> · ISDS Junior at LSU (3.5 GPA) · Python, Cloudflare, Product Flow & Systems</span>
+      </div>
+      <div class="recruiter-banner-actions">
+        <button type="button" class="btn btn-sm btn-primary open-resume-modal-btn"><i class="fas fa-file-lines"></i> Open Resume</button>
+        <a href="index.html#contact" class="btn btn-sm btn-secondary"><i class="fas fa-paper-plane"></i> Quick Connect</a>
+        <button type="button" id="recruiter-banner-close" class="recruiter-close-btn" title="Exit Recruiter Mode"><i class="fas fa-times"></i></button>
       </div>
     </div>
   </div>

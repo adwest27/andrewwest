@@ -279,59 +279,42 @@ function initCopyEmail() {
 }
 
 /* ==========================================================================
-   GLOBAL TOAST NOTIFICATION
-   ========================================================================== */
-function showToast(message) {
-  let toast = document.getElementById('toast-notification');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'toast-notification';
-    toast.className = 'toast-notification';
-    toast.innerHTML = `<i class="fas fa-check-circle toast-icon"></i><span id="toast-message"></span>`;
-    document.body.appendChild(toast);
-  }
-
-  const msgSpan = document.getElementById('toast-message');
-  if (msgSpan) msgSpan.textContent = message;
-
-  toast.classList.add('show');
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, 3500);
-}
-
-/* ==========================================================================
    SCROLL REVEAL ANIMATIONS (IntersectionObserver)
    ========================================================================== */
 function initScrollAnimations() {
   const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('revealed');
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = '';
+        setTimeout(() => {
+          entry.target.style.transition = '';
+        }, 600);
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  document.querySelectorAll('.glass-card, .timeline-item, .stat-item').forEach(el => {
+  document.querySelectorAll(
+    '.glass-card:not(.cmd-palette-modal):not(.modal-dialog), .timeline-item, .stat-item'
+  ).forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
+    el.style.transform = 'translateY(18px)';
     el.style.transition = 'opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
     observer.observe(el);
   });
 }
 
-// Add CSS rule dynamically for revealed elements
 const styleSheet = document.createElement('style');
 styleSheet.textContent = `
   .revealed {
     opacity: 1 !important;
-    transform: translateY(0) !important;
   }
 `;
 document.head.appendChild(styleSheet);
@@ -472,16 +455,41 @@ async function initGitHubActivity() {
 }
 
 /* ==========================================================================
-   TOAST NOTIFICATION HELPER
+   GLOBAL UNIFIED TOAST NOTIFICATION
    ========================================================================== */
-function showToast(title, desc) {
-  const toast = document.getElementById('share-toast');
-  const titleEl = document.getElementById('toast-title');
-  const descEl = document.getElementById('toast-desc');
-  if (!toast) return;
+function showToast(title, desc = '') {
+  let toast = document.getElementById('share-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'share-toast';
+    toast.className = 'share-toast';
+    toast.setAttribute('aria-live', 'polite');
+    toast.innerHTML = `
+      <div class="share-toast-content">
+        <div class="share-toast-icon"><i class="fas fa-check"></i></div>
+        <div class="share-toast-text">
+          <strong id="toast-title"></strong>
+          <span id="toast-desc"></span>
+        </div>
+      </div>`;
+    document.body.appendChild(toast);
+  }
 
-  if (titleEl && title) titleEl.textContent = title;
-  if (descEl && desc) descEl.textContent = desc;
+  const titleEl = toast.querySelector('#toast-title') || toast.querySelector('strong');
+  const descEl = toast.querySelector('#toast-desc') || toast.querySelector('span');
+
+  if (titleEl) {
+    titleEl.textContent = title;
+  }
+  if (descEl) {
+    if (desc) {
+      descEl.textContent = desc;
+      descEl.style.display = 'block';
+    } else {
+      descEl.textContent = '';
+      descEl.style.display = 'none';
+    }
+  }
 
   toast.classList.add('show');
   
