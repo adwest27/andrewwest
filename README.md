@@ -1,4 +1,4 @@
 This project is a portfolio website that represents my achievements and skills throughout my work and school career. With the use of ai generation, I was able to vibe code to make a portfolio website that is moder and proffessional for potiential employers. Many sections include, an about me, education, work experience, skill, and more. I uploaded this website with the use of a domain from GoDaddy and used Cloudfare to host the website. The link to the webpage is https://andrewwestofficial.com.
 
 
-Reflection on working on this project:
+Reflection on working on this project: I liked the way ai could build a stylistic website and wondered how they connected it to index.html, and others. Apparently the index.html acts as a skeleton that holds the information that you want presented, then a style.css is created to give an appearance. Making sure that it isn't just words on the screen, but a more asethic appealing to viewers. I also learned that the main.js is what makes the website interactive, using what style.css formed to create a responsive website. 
